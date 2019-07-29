@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('username', 64)->nullable();
             $table->string('email', 64)->nullable();
             $table->string('password', 64)->nullable();
-            $table->integer('type_id', 64)->nullable()->unsigned()->index();
-            $table->integer('added_by_id', 64)->nullable()->unsigned()->index();
+            $table->integer('type_id')->nullable()->unsigned()->index();
+            $table->integer('added_by_id')->nullable()->unsigned()->index();
            
             $table->timestamps();
             $table->softDeletes();
