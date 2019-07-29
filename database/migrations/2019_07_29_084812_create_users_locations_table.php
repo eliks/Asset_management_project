@@ -19,7 +19,8 @@ class CreateUsersLocationsTable extends Migration
             $table->integer('location_id')->index()->unsigned()->nullable();
             $table->integer('added_by_id')->index()->unsigned()->nullable();
             $table->softDeletes();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(date('y-m-d H:i:s', strtotime('now')));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
