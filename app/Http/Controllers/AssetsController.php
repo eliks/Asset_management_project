@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 class AssetsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listi'sdiwoe aoskdoiw'ng of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        return Asset::all();
         $data = [];
         return view('assets.index', $data);
     }

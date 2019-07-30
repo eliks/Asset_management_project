@@ -16,6 +16,7 @@ class CreateAssetsTablesTable extends Migration
         Schema::create('assets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',64)->nullable();
+            $table->integer('type_id')->nullable()->unsigned()->index();
             $table->string('tag',64)->nullable();
             $table->string('brand',64)->nullable();
             $table->string('user_name',64)->nullable();
