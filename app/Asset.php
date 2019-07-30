@@ -10,4 +10,14 @@ class Asset extends Model
     {
         return $this->belongsTo('App\AssetType');
     }
+
+    public function location()
+    {
+        return $this->belongsTo('App\Location');
+    }
+
+    public function maintenanceActivities()
+    {
+        return $this->hasMany('App\MaintenanceActivities');
+    }
 }

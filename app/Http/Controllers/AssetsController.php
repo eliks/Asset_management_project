@@ -14,8 +14,8 @@ class AssetsController extends Controller
      */
     public function index()
     {
-        return Asset::all();
-        $data = [];
+        $data['assets'] = Asset::with(['location', 'type', 'maintenanceActivities'])->get();
+        
         return view('assets.index', $data);
     }
 
