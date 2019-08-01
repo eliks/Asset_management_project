@@ -56,35 +56,32 @@
                     <th>Name</th>
                     <th>Tag</th>
                     <th>Type</th>
-                    <th>Brand</th>
-                    <th>Location</th>
+                    <th>Organization</th>
+                    <th>Parent</th>
                     <th>User</th>
-                    <th>Maintenace Activity</th>
+                    <th class="text-center">No. Assets</th>
                     <th class="text-center">Actions</th>
                 </tr>
                 </thead>
 
 
                 <tbody>
-                    @foreach($assets as $key => $asset)
+                    @foreach($locations as $key => $location)
                         <tr>
                             <td>{{1+$key}}.</td>
-                            <td>{{$asset->name}}</td>
-                            <td>{{$asset->tag}}</td>
-                            <td>{{$asset->type ? $asset->type->name : ''}}</td>
-                            <td>{{$asset->brand}}</td>
-                            <td>{{$asset->location? $asset->location->name : ''}}</td>
-                            <td>{{$asset->user_name}}</td>
-                            <td>
-                                @foreach($asset->MaintenanceActivities as $maintenaceActivity)
-                                    <a href="#">{{$maintenaceActivity ? $maintenaceActivity->description : ''}}</a>
-                                @endforeach
-                            </td>
+                            <td>{{$location->name}}</td>
+                            <td>{{$location->tag}}</td>
+                            <td>{{$location->type ? $location->type->name : ''}}</td>
+                            <td>{{$location->organization ? $location->organization->name : ''}}</td>
+                            <td>{{$location->parent? $location->parent->name : ''}}</td>
+                            <td>{{$location->user_name}}</td>
+                            <td class="text-center">{{count($location->assets)}}</td>
+            
                             <td class="text-center">
-                                <a href="{{route('assets.show', ['id'=>$asset->id])}}">
+                                <a href="{{route('assets.show', ['id'=>$location->id])}}">
                                     <i class="fa fa-search-plus text-info"></i>
                                 </a>
-                                <a href="{{route('assets.edit', ['id'=>$asset->id])}}">
+                                <a href="{{route('assets.edit', ['id'=>$location->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
                                 <a href="#">

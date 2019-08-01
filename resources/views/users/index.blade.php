@@ -27,7 +27,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-            <h2>Default Example <small>Assets</small></h2>
+            <h2>Default Example <small>Users</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -54,7 +54,7 @@
                 <tr>
                     <th>#.</th>
                     <th>Name</th>
-                    <th>Tag</th>
+                    <th>User Type</th>
                     <th>Type</th>
                     <th>Brand</th>
                     <th>Location</th>
@@ -66,25 +66,23 @@
 
 
                 <tbody>
-                    @foreach($assets as $key => $asset)
+                    @foreach($users as $key => $user)
                         <tr>
                             <td>{{1+$key}}.</td>
-                            <td>{{$asset->name}}</td>
-                            <td>{{$asset->tag}}</td>
-                            <td>{{$asset->type ? $asset->type->name : ''}}</td>
-                            <td>{{$asset->brand}}</td>
-                            <td>{{$asset->location? $asset->location->name : ''}}</td>
-                            <td>{{$asset->user_name}}</td>
+                            <td>{{$user->username}}</td>
+                            <td>{{$user->tag}}</td>
+                            <td>{{$user->type ? $user->type->name : ''}}</td>
+                            <td>{{$user->brand}}</td>
+                            <td>{{$user->location? $user->location->name : ''}}</td>
+                            <td>{{$user->user_name}}</td>
                             <td>
-                                @foreach($asset->MaintenanceActivities as $maintenaceActivity)
-                                    <a href="#">{{$maintenaceActivity ? $maintenaceActivity->description : ''}}</a>
-                                @endforeach
+                                
                             </td>
                             <td class="text-center">
-                                <a href="{{route('assets.show', ['id'=>$asset->id])}}">
+                                <a href="{{route('users.show', ['id'=>$user->id])}}">
                                     <i class="fa fa-search-plus text-info"></i>
                                 </a>
-                                <a href="{{route('assets.edit', ['id'=>$asset->id])}}">
+                                <a href="{{route('users.edit', ['id'=>$user->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
                                 <a href="#">

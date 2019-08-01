@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Users_table;
+use App\User;
 use Illuminate\Http\Request;
 
 class UsersTableController extends Controller
@@ -14,7 +14,7 @@ class UsersTableController extends Controller
      */
     public function index()
     {
-        //
+         return view ('users.index',  ['users' =>User::all()]); 
     }
 
     /**
@@ -24,7 +24,7 @@ class UsersTableController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**

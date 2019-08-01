@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Add Asset</h3>
+            <h3>Add Locations</h3>
             </div>
 
             <div class="title_right">
@@ -50,7 +50,7 @@
                 <form class="form-horizontal form-label-left">
 
                     <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Location Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" class="form-control" placeholder="Default Input">
                     </div>
