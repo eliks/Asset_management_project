@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Asset;
 use Illuminate\Http\Request;
+use\Validator;
 
 class AssetsController extends Controller
 {
@@ -27,7 +28,11 @@ class AssetsController extends Controller
     public function create()
     {
         $data = [];
-        return view('assets.create', $data);
+        // $message = [];
+        // return fgdgfgdg;
+        return view('assets.create', $data)
+            // ->with('message', $message)
+            ;
     }
 
     /**
@@ -38,7 +43,29 @@ class AssetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator=Validator::make($request->all(), [
+                'name' => 'required',
+                'type_id' =>'required|numeric',
+                'tag' => 'required',
+                'brand' => 'required',
+                'date_commenced' => 'required',
+                'date_disposed' => 'required|date',
+                'date_acquired' => 'required|date',
+            ], 
+        );
+
+        if ($validator->fails()) {
+            // return $request;
+            return redirect(route('assets.create'))
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+       $data = $request->all();
+
+       Asset::create($data);
+
+       return redirect(route('assets.index'));
     }
 
     /**
