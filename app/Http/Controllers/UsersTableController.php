@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use \Validator;
+
 
 class UsersTableController extends Controller
 {
@@ -35,7 +37,27 @@ class UsersTableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|unique:users|max:16|min:5',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+            // 'type' => 'required',
+            // 'location' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $data = $request->all();
+
+        $data['type_id'] = $data['type'];
+        $user = User::create($data);
+        // UsersLocation::create(['user_id' => $user->id, 'location_id' => $data['location_id']]);
+
+        return redirect('users');
     }
 
     /**
