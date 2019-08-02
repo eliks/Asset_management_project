@@ -45,8 +45,8 @@
             </li>
             <li><a><i class="fa fa-map-marker"></i> Locations <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-                <li><a href="{{route('location.index')}}">All Locations</a></li>
-                <li><a href="{{route('location.create')}}">New Location</a></li>
+              <!--   <li><a href="{{route('location.index')}}">All Locations</a></li>
+                <li><a href="{{route('location.create')}}">New Location</a></li> -->
                 <li><a href="typography.html">Typography</a></li>
                 <li><a href="icons.html">Icons</a></li>
                 <li><a href="glyphicons.html">Glyphicons</a></li>
