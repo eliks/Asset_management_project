@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\MaintenanceActivities;
+use App\UserType;
 use Illuminate\Http\Request;
 
-class MaintenanceActivitiesController extends Controller
+class UserTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class MaintenanceActivitiesController extends Controller
      */
     public function index()
     {
-        return view ('maintenance.index',['maintenance'=>MaintenanceActivities::all()]);
+        //
     }
 
     /**
@@ -24,8 +24,7 @@ class MaintenanceActivitiesController extends Controller
      */
     public function create()
     {
-        $data = [];
-        return view ('maintenance.create', $data);
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class MaintenanceActivitiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\MaintenanceActivities  $maintenanceActivities
+     * @param  \App\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function show(MaintenanceActivities $maintenanceActivities)
+    public function show(UserType $userType)
     {
         //
     }
@@ -53,10 +52,10 @@ class MaintenanceActivitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MaintenanceActivities  $maintenanceActivities
+     * @param  \App\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function edit(MaintenanceActivities $maintenanceActivities)
+    public function edit(UserType $userType)
     {
         //
     }
@@ -65,10 +64,10 @@ class MaintenanceActivitiesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MaintenanceActivities  $maintenanceActivities
+     * @param  \App\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MaintenanceActivities $maintenanceActivities)
+    public function update(Request $request, UserType $userType)
     {
         //
     }
@@ -76,10 +75,10 @@ class MaintenanceActivitiesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\MaintenanceActivities  $maintenanceActivities
+     * @param  \App\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MaintenanceActivities $maintenanceActivities)
+    public function destroy(UserType $userType)
     {
         //
     }
