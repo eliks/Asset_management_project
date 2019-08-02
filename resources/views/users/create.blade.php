@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Add a New Asset Here</h3>
+            <h3>Add User</h3>
             </div>
 
             <div class="title_right">
@@ -27,7 +27,7 @@
             <div class="col-md-7 col-xs-12 col-md-offset-1">
             <div class="x_panel">
                 <div class="x_title">
-                <h2>Add a New Asset<small>admin</small></h2>
+                <h2>Form Basic Elements <small>different form elements</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -47,132 +47,47 @@
                 </div>
                 <div class="x_content">
                 <br />
-                @if (count($errors) > 0)
-                    <div class="error">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form class="form-horizontal form-label-left" action="{{route ('assets.store')}}" method="POST">
-                  {{csrf_field()}}
-                   <div class="box-body">
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="name" class="form-control" placeholder="name" value="{{old('name')}}">
-                         @error('name')
-                            <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Tag</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="tag" class="form-control"  placeholder="Disabled Input" value="{{old('tag')}}">
-                         @error('tag')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Type Id</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="type_id" class="form-control"  placeholder="Disabled Input" value="{{old('type_id')}}">
-                         @error('type_id')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="brand" class="form-control" placeholder="Read-Only Input" value="{{old('brand')}}">
-                         @error('brand')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">User Name</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="user_name" class="form-control"  placeholder="Disabled Input" value="{{old('user_name')}}">
-                         @error('user_name')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Commenced</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" name="date_commenced"class="form-control" value="date commenced" value="{{old('date_commenced')}}">
-                         @error('date_commenced')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Disposed</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" name="date_disposed" id="autocomplete-custom-append" placeholder="date disposed" value="{{old('date_disposed')}}">
-                         @error('date_disposed')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
-                     <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" name="date_acquired" id="autocomplete-custom-append" placeholder="date acquired" value="{{old('date_acquired')}}">
-                         @error('date_acquired')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
+                <form class="form-horizontal form-label-left">
 
-
-
-                      <div class="form-group">
-                <!--   <div class="col-sm-offset-2 col-sm-10 mb-3">
-                    <div class="checkbox">
-                      <label> 
-                        <input type="checkbox"> Remember me
-                      </label>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Location Name</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="Default Input">
                     </div>
-                  </div> -->
-                  <!-- /.box-body -->
-                  <div class="box-footer mt-3">
-                    <div class="col-md-4">                      
-                      <button type="reset" class="btn btn-warning btn-block">Cancel</button>
                     </div>
-                    <div class="col-md-8">                      
-                      <button type="submit" class="btn btn-success btn-block pull-right">submit</button>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> </label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
                     </div>
-                  </div>
-                  <!-- /.box-footer -->
-                </div>
-            </div>
-                     </form>
-                  <!--   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Read-Only Input</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired <span class="required">*</span>
+                    </label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control" rows="3" placeholder="Date Of Birth"></textarea>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="password" class="form-control" value="passwordonetwo">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">AutoComplete</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10"/>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Type</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control">
                         <option>Air Conditioner</option>
@@ -182,9 +97,9 @@
                         <option>Table</option>
                         </select>
                     </div>
-                    </div> -->
-                   <!--  <div class="form-group"> -->
-                    <!-- <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Custom</label>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Custom</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="select2_single form-control" tabindex="-1">
                         <option></option>
@@ -432,6 +347,6 @@
 
         </div>
     </div>
-</div> -->
+</div>
 <!-- /page content -->
 @endsection

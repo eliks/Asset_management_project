@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/assets', 'AssetsController');
-Route::resource('/maintenance', 'MaintenanceActivitiesController');
+Route::resource('/location', 'LocationController');
+Route::resource('/users', 'UsersTableController');

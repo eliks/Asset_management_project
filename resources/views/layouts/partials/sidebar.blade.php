@@ -9,7 +9,7 @@
     <!-- menu profile quick info -->
     <div class="profile clearfix">
         <div class="profile_pic">
-        <img src="{{asset('gm/production/images/img.jpg')}}" alt="..." class="img-circle profile_img">
+        <img src="{{asset('gm/production/images/default_user.png')}}" alt="..." class="img-circle profile_img">
         </div>
         <div class="profile_info">
         <span>Welcome,</span>
@@ -45,8 +45,8 @@
             </li>
             <li><a><i class="fa fa-map-marker"></i> Locations <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-                <li><a href="general_elements.html">General Elements</a></li>
-                <li><a href="media_gallery.html">Media Gallery</a></li>
+                <li><a href="{{route('location.index')}}">All Locations</a></li>
+                <li><a href="{{route('location.create')}}">New Location</a></li>
                 <li><a href="typography.html">Typography</a></li>
                 <li><a href="icons.html">Icons</a></li>
                 <li><a href="glyphicons.html">Glyphicons</a></li>
@@ -70,8 +70,8 @@
             <li><a href="#"><i class="fa fa-cube"></i> Asset Types </a></li>
             <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-                <li><a href="#">All Users</a></li>
-                <li><a href="#">New User</a></li>
+                <li><a href="{{route('users.index')}}">All Users</a></li>
+                <li><a href="{{route('users.create')}}">New User</a></li>
                 <li><a href="#">User Types</a></li>
             </ul>
             </li>

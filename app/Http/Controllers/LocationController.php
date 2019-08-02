@@ -14,7 +14,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+         
+        return view ('Locations.index',  ['locations' => Location::all()]); 
     }
 
     /**
@@ -24,7 +25,8 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        $data = [];
+        return view('locations.create', $data);
     }
 
     /**
