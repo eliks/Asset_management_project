@@ -128,7 +128,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Disposed</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" name="date_disposed" id="autocomplete-custom-append" placeholder="date disposed" value="{{old('date_disposed')}}">
+                        <input type="date" name="date_disposed" class="form-control" id="autocomplete-custom-append" placeholder="date disposed" value="{{old('date_disposed')}}">
                          @error('date_disposed')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -139,7 +139,7 @@
                      <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" name="date_acquired" id="autocomplete-custom-append" placeholder="date acquired" value="{{old('date_acquired')}}">
+                        <input type="date" name="date_acquired"  class="form-control" id="autocomplete-custom-append" placeholder="date acquired" value="{{old('date_acquired')}}">
                          @error('date_acquired')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
