@@ -47,43 +47,49 @@
                 </div>
                 <div class="x_content">
                 <br />
-                <form class="form-horizontal form-label-left">
+                @if ($errors->any())
+                     @foreach ($errors->all() as $error)
+                         <div>{{$error}}</div>
+                     @endforeach
+                 @endif
+                <form class="form-horizontal form-label-left" action="{{route('users.store')}}" method="POST">
+                    @csrf
 
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">User Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="Enter your name...">
+                        <input type="text" name="username" class="form-control" placeholder="Enter your name...">
                     </div>
                     </div>
 
                      <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="email" class="form-control" placeholder="Email address...">
+                        <input type="email" name="email" class="form-control" placeholder="Email address...">
                     </div>
                     </div>
                    
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="password" class="form-control" value="" placeholder="Enter password...">
+                        <input type="password" name= "password" class="form-control" value="" placeholder="Enter password...">
                     </div>
                     </div>
                    
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">User Type</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select class="form-control">
-                        <option>Administrator</option>
-                        <option>Custodian</option>
-                        <option>Technician</option>
+                        <select class="form-control" name="type">
+                            <option value="1">Administrator</option>
+                            <option value="2">Custodian</option>
+                            <option value="3">Technician</option>
                         </select>
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">User Location</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select class="select2_single form-control" tabindex="-1">
+                        <select class="select2_single form-control" tabindex="-1" name="location">
                         <option></option>
                         <option value="AK" selected="">Alaska</option>
                         <option value="HI">Hawaii</option>
