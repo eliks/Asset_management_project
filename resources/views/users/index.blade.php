@@ -67,7 +67,7 @@
                         <tr>
                             <td>{{1+$key}}.</td>
                             <td>{{$user->username}}</td>
-                            <td>{{'..underConstruction'}}</td>
+                            <td>{{$user->type ? $user->type->name : ''}}</td>
                             <td>{{$user->email}}</td>
                             <td><a href="">{{count($user->locations)}}</a></td>
                             <td class="text-center">
