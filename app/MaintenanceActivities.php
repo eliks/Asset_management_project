@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class MaintenanceActivities extends Model
 {
+    protected $primaryKey = 'id'; 
+    protected $fillable = ['asset_id','description','maintained_by', 'maintained_at','supervised_by','location','comment','added_by_id'];
+
     public function asset()
     {
         return $this->belongsTo('App\Asset');
