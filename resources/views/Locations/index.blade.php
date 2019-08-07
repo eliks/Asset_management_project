@@ -74,11 +74,11 @@
                             <td>{{$location->type ? $location->type->name : ''}}</td>
                             <td>{{$location->organization ? $location->organization->name : ''}}</td>
                             <td>{{$location->parent? $location->parent->name : ''}}</td>
-                            <td>{{$location->user_name}}</td>
+                            <!-- <td>{{$location->user_name}}</td> -->
                             <td class="text-center">{{count($location->assets)}}</td>
             
                             <td class="text-center">
-                                <a href="{{route('assets.show', ['id'=>$location->id])}}">
+                                <a href="{{route('location.show', ['id'=>$location->id])}}">
                                     <i class="fa fa-search-plus text-info"></i>
                                 </a>
                                 <a href="{{route('assets.edit', ['id'=>$location->id])}}">

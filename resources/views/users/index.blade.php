@@ -55,11 +55,7 @@
                     <th>#.</th>
                     <th>Name</th>
                     <th>User Type</th>
-                    <th>Type</th>
-                    <th>Brand</th>
-                    <th>Location</th>
-                    <th>User</th>
-                    <th>Maintenace Activity</th>
+                    <th>Email</th>
                     <th class="text-center">Actions</th>
                 </tr>
                 </thead>
@@ -70,14 +66,8 @@
                         <tr>
                             <td>{{1+$key}}.</td>
                             <td>{{$user->username}}</td>
-                            <td>{{$user->tag}}</td>
-                            <td>{{$user->type ? $user->type->name : ''}}</td>
-                            <td>{{$user->brand}}</td>
-                            <td>{{$user->location? $user->location->name : ''}}</td>
-                            <td>{{$user->user_name}}</td>
-                            <td>
-                                
-                            </td>
+                            <td>{{'..underConstruction'}}</td>
+                            <td>{{$user->email}}</td>
                             <td class="text-center">
                                 <a href="{{route('users.show', ['id'=>$user->id])}}">
                                     <i class="fa fa-search-plus text-info"></i>

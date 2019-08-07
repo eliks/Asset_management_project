@@ -4,9 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Location extends Model
 {
-    //
+    protected $primaryKey = 'id';
+            
+     protected $fillable = ['name','organization_id', 'tag', 'parent_id', 'address', 'added_by_id'];
 
     public function assets()
     {

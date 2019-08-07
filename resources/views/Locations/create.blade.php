@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Add Locations</h3>
+            <h3>Add a New Location</h3>
             </div>
 
             <div class="title_right">
@@ -27,7 +27,7 @@
             <div class="col-md-7 col-xs-12 col-md-offset-1">
             <div class="x_panel">
                 <div class="x_title">
-                <h2>Form Basic Elements <small>different form elements</small></h2>
+                <h2>Add a New Asset<small>admin</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -47,46 +47,131 @@
                 </div>
                 <div class="x_content">
                 <br />
-                <form class="form-horizontal form-label-left">
-
+                @if (count($errors) > 0)
+                    <div class="error">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="form-horizontal form-label-left" action="{{route ('location.store')}}" method="POST">
+                  {{csrf_field()}}
+                   <div class="box-body">
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Location Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" placeholder="name" value="{{old('name')}}">
+                         @error('name')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     </div>
                     <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> </label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Location Tag</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
+                        <input type="text" name="tag" class="form-control"  placeholder="Disabled Input" value="{{old('tag')}}">
+                         @error('tag')
+                        <span class="invalid-feedback text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                     </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Read-Only Input</label>
+                      <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Organization</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
+                        <input type="text" name="organization_id" class="form-control"  placeholder="Disabled Input" value="{{old('organization_id')}}">
+                         @error('organization_id')
+                        <span class="invalid-feedback text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                     </div>
                     <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired <span class="required">*</span>
-                    </label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Parent</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea class="form-control" rows="3" placeholder="Date Of Birth"></textarea>
+                        <input type="text" name="parent_id" class="form-control" placeholder="Read-Only Input" value="{{old('parent_id')}}">
+                         @error('parent_id')
+                        <span class="invalid-feedback text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                     </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="password" class="form-control" value="passwordonetwo">
+                        <input type="text" name="address" class="form-control"  placeholder="Disabled Input" value="{{old('address')}}">
+                         @error('address')
+                        <span class="invalid-feedback text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                     </div>
                     <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">AutoComplete</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Added By</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10"/>
+                        <input type="text" name="added_by_id" class="form-control" value="date commenced" value="{{old('added_id')}}">
+                         @error('added_id')
+                        <span class="invalid-feedback text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                     </div>
-                    <div class="form-group">
+                   <!--  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Disposed</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="date" name="date_disposed"  class="form-control" id="autocomplete-custom-append" placeholder="date disposed" value="{{old('date_disposed')}}">
+                         @error('date_disposed')
+                        <span class="invalid-feedback text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div>
+                    </div>
+                     <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="date" name="date_acquired"  class="form-control" id="autocomplete-custom-append" placeholder="date acquired" value="{{old('date_acquired')}}">
+                         @error('date_acquired')
+                        <span class="invalid-feedback text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div>
+                    </div> -->
+
+
+
+                      <div class="form-group">
+                <!--   <div class="col-sm-offset-2 col-sm-10 mb-3">
+                    <div class="checkbox">
+                      <label> 
+                        <input type="checkbox"> Remember me
+                      </label>
+                    </div>
+                  </div> -->
+                  <!-- /.box-body -->
+                  <div class="box-footer mt-3">
+                    <div class="col-md-4">                      
+                      <button type="reset" class="btn btn-warning btn-block">Cancel</button>
+                    </div>
+                    <div class="col-md-8">                      
+                      <button type="submit" class="btn btn-success btn-block pull-right">submit</button>
+                    </div>
+                  </div>
+                  <!-- /.box-footer -->
+                </div>
+            </div>
+                     </form>
+                  <!--   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Type</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control">
@@ -347,6 +432,6 @@
 
         </div>
     </div>
-</div>
+</div> -->
 <!-- /page content -->
 @endsection

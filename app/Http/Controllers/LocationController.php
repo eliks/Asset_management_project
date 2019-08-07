@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Location;
 use Illuminate\Http\Request;
+use\Validator;
 
 class LocationController extends Controller
 {
@@ -26,7 +27,7 @@ class LocationController extends Controller
     public function create()
     {
         $data = [];
-        return view('locations.create', $data);
+        return view('Locations.create', $data);
     }
 
     /**
@@ -37,7 +38,30 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $validator=Validator::make($request->all(), [
+                'name' => 'required',
+                'organization_id' =>'required|numeric',
+                'tag' => 'required',
+                'parent_id' => 'required|numeric',
+                'address' => 'required',
+                'added_by_id' => 'required|numeric',
+               
+            ], 
+        );
+
+  
+        if ($validator->fails()) {
+            // return $request;
+            return redirect(route('location.create'))
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+       $data = $request->all();
+
+       Location::create($data);
+
+       return redirect(route('location.index'));
     }
 
     /**
@@ -48,7 +72,9 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        //
+          $array['Locations'] = Location::findOrFail($id);
+        
+       return view('Locations.more')->with($array);
     }
 
     /**
