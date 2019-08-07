@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MaintenanceActivities;
 use Illuminate\Http\Request;
+use\Validator;
 
 class MaintenanceActivitiesController extends Controller
 {
@@ -14,7 +15,7 @@ class MaintenanceActivitiesController extends Controller
      */
     public function index()
     {
-        //
+        return view ('maintenance.index',['maintenance'=>MaintenanceActivities::all()]);
     }
 
     /**
@@ -24,7 +25,8 @@ class MaintenanceActivitiesController extends Controller
      */
     public function create()
     {
-        //
+        $data = [];
+        return view ('maintenance.create', $data);
     }
 
     /**
@@ -35,7 +37,24 @@ class MaintenanceActivitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'asset_id'=> 'required',
+            'description'=>'required',
+            'maintained_by'=>'required',
+            'maintained_at'=>'required',
+            'supervised_by'=>'required',
+            'location'=>'required',
+        ],
+    );
+
+        if ($validator->fails()){
+            return redirect(route('maintenance.create'))
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $data=$request->all();
+        MaintenanceActivities::create($data);
+        return redirect (route('maintenance.index'));
     }
 
     /**
