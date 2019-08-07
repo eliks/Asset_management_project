@@ -56,6 +56,7 @@
                     <th>Name</th>
                     <th>User Type</th>
                     <th>Email</th>
+                    <th>Locations</th>
                     <th class="text-center">Actions</th>
                 </tr>
                 </thead>
@@ -68,6 +69,7 @@
                             <td>{{$user->username}}</td>
                             <td>{{'..underConstruction'}}</td>
                             <td>{{$user->email}}</td>
+                            <td><a href="">{{count($user->locations)}}</a></td>
                             <td class="text-center">
                                 <a href="{{route('users.show', ['id'=>$user->id])}}">
                                     <i class="fa fa-search-plus text-info"></i>

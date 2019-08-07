@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -19,7 +20,7 @@ class User extends Authenticatable
      // protected $table = 'user';
 
     protected $fillable = [
-        'username', 'email', 'password', 'type_id'
+        'username', 'email', 'password', 'type_id' ,'location_id'
     ];
 
     /**
@@ -30,4 +31,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+     public function locations()
+    {           
+        return $this->belongsToMany('App\Location', 'users_locations');
+    }
+
+       public function type()
+    {           
+        return $this->belongsTo('App\UserType');
+    }
 }
+

@@ -91,33 +91,33 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="select2_single form-control" tabindex="-1" name="location">
                         <option></option>
-                        <option value="AK" selected="">Alaska</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="CA">California</option>
-                        <option value="NV">Nevada</option>
-                        <option value="OR">Oregon</option>
-                        <option value="WA">Washington</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="CO">Colorado</option>
-                        <option value="ID">Idaho</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="UT">Utah</option>
-                        <option value="WY">Wyoming</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TX">Texas</option>
+                        <option value="1" selected="">Alaska</option>
+                        <option value="2">Hawaii</option>
+                        <option value="3">California</option>
+                        <option value="4">Nevada</option>
+                        <option value="5">Oregon</option>
+                        <option value="6">Washington</option>
+                        <option value="7">Arizona</option>
+                        <option value="8">Colorado</option>
+                        <option value="9">Idaho</option>
+                        <option value="10">Montana</option>
+                        <option value="11">Nebraska</option>
+                        <option value="12">New Mexico</option>
+                        <option value="13">North Dakota</option>
+                        <option value="14">Utah</option>
+                        <option value="15">Wyoming</option>
+                        <option value="16">Arkansas</option>
+                        <option value="17">Illinois</option>
+                        <option value="18">Iowa</option>
+                        <option value="19">Kansas</option>
+                        <option value="20">Kentucky</option>
+                        <option value="21">Louisiana</option>
+                        <option value="22">Minnesota</option>
+                        <option value="23">Mississippi</option>
+                        <option value="24">Missouri</option>
+                        <option value="25">Oklahoma</option>
+                        <option value="26">South Dakota</option>
+                        <option value="27">Texas</option>
                         </select>
                     </div>
                     </div>

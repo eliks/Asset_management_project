@@ -58,7 +58,7 @@
                     <th>Type</th>
                     <th>Organization</th>
                     <th>Parent</th>
-                    <th>User</th>
+                
                     <th class="text-center">No. Assets</th>
                     <th class="text-center">Actions</th>
                 </tr>

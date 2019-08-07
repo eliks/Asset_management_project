@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UsersLocation;
 use Illuminate\Http\Request;
 use \Validator;
 
@@ -16,6 +17,7 @@ class UsersTableController extends Controller
      */
     public function index()
     {
+        // return User::find(19)->locations;
          return view ('users.index',  ['users' =>User::all()]); 
     }
 
@@ -41,7 +43,7 @@ class UsersTableController extends Controller
             'username' => 'required|unique:users|max:16|min:5',
             'email' => 'required|email',
             'password' => 'required|min:8',
-            // 'type' => 'required',
+            'type' => 'required',
             // 'location' => 'required'
         ]);
 
@@ -55,7 +57,7 @@ class UsersTableController extends Controller
 
         $data['type_id'] = $data['type'];
         $user = User::create($data);
-        // UsersLocation::create(['user_id' => $user->id, 'location_id' => $data['location_id']]);
+        UsersLocation::create(['user_id' => $user->id, 'location_id' => $data['location']]);
 
         return redirect('users');
     }
