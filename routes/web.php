@@ -18,4 +18,9 @@ Route::resource('assets', 'AssetsController');
 Route::resource('location', 'LocationController');
 Route::resource('users', 'UsersTableController');
 Route::resource('maintenance', 'MaintenanceActivitiesController');
+Route::resource('userslocation', 'UsersLocationController');
+
+Route::get('/', function () {
+    return view('welcome');
+});
 

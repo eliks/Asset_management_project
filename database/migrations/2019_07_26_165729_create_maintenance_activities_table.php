@@ -21,7 +21,7 @@ class CreateMaintenanceActivitiesTable extends Migration
             $table->string('supervised_by',64)->nullable();
             $table->string('description',64)->nullable();
             $table->double('cost')->nullable();
-            $table->string('comment',64)->nullable();
+            $table->string('comment')->nullable();
             $table->string('location',64)->nullable();
             $table->integer('added_by_id')->unsigned()->index()->nullable();
             $table->softDeletes();

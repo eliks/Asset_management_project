@@ -37,6 +37,16 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Location', 'users_locations');
     }
 
+     public function impliedLocations()
+    {       
+        $impliedLocations = collect();    
+        
+        foreach($this->locations as $location)
+            $impliedLocations->merge($location->children());
+
+        return $impliedLocations->merge($this->locations);
+    }
+
        public function type()
     {           
         return $this->belongsTo('App\UserType');

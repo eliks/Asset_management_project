@@ -9,7 +9,27 @@ class Asset extends Model
 
     protected $primaryKey = 'id';
             
-     protected $fillable = ['name','type_id', 'tag', 'brand', 'user_name', 'date_commenced', 'date_disposed','date_acquired','added_by_id'];
+     protected $fillable = ['name','type_id', 'tag', 'brand', 'user_name', 'date_commenced', 'date_acquired', 'location_id','added_by_id'];
+
+    public function getNextAssetIdAttribute()
+    {
+        $assets = Self::where('id', '>', $this->id)->orderBy('id','ASC');
+        
+        if (count($assets->get()) > 0)
+            return $assets->first()->id;
+
+        return Self::where('id', '<>', $this->id)->orderBy('id','ASC')->first()->id;
+    }
+
+    public function getPreviousAssetIdAttribute()
+    {
+        $assets = Self::where('id', '<', $this->id)->orderBy('id','DESC');
+        
+        if (count($assets->get()) > 0)
+            return $assets->first()->id;
+
+        return Self::where('id', '<>', $this->id)->orderBy('id','DESC')->first()->id;
+    }
 
 
     public function type()

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
+use App\User;
+use App\Location;
 use Illuminate\Http\Request;
 use\Validator;
 
@@ -47,10 +49,9 @@ class AssetsController extends Controller
                 'name' => 'required',
                 'type_id' =>'required|numeric',
                 'tag' => 'required',
-                'brand' => 'required',
                 'date_commenced' => 'required',
-                'date_disposed' => 'required|date',
                 'date_acquired' => 'required|date',
+                'location_id'=>'required',
             ], 
         );
 
@@ -74,9 +75,13 @@ class AssetsController extends Controller
      * @param  \App\Assets_Table  $assets_Table
      * @return \Illuminate\Http\Response
      */
-    public function show(Assets_Table $assets_Table)
+    public function show($asset_id)
     {
-        //
+         User::find(6)->impliedLocations();
+        $data['asset'] = Asset::with('maintenanceActivities')->where('id', $asset_id)->first();
+        $data['next_asset_id'] = $data['asset']->next_asset_id;
+        $data['previous_asset_id'] = $data['asset']->previous_asset_id;
+        return view('assets.show', $data);
     }
 
     /**

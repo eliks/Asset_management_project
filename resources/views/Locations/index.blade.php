@@ -6,7 +6,7 @@
     <div class="">
     <div class="page-title">
         <div class="title_left">
-        <h3>Assets <small>Some examples to get you started</small></h3>
+        <h3>All Locations</h3>
         </div>
 
         <div class="title_right">
@@ -27,7 +27,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-            <h2>Default Example <small>Assets</small></h2>
+           
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -46,9 +46,7 @@
             <div class="clearfix"></div>
             </div>
             <div class="x_content">
-            <p class="text-muted font-13 m-b-30">
-                DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-            </p>
+
             <table id="datatable" class="table table-striped table-bordered">
                 <thead>
                 <tr>

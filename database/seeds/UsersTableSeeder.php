@@ -11,6 +11,53 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
- 
+ 		DB::table('users')->insert([
+            'username' => 'James Baah',
+            'email' => 'baah22@gmail.com',
+            'password' => 'kwesi',
+            'added_by_id' =>'1',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Prince charles',
+            'email' => 'princy@gmail.com',
+            'password' => 'chacha',
+            'added_by_id' =>'1',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Lydia Amaaley',
+            'email' => 'lydama@yahoo.com.com',
+            'password' => 'lydialydia',
+            'added_by_id' =>'1',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Philomena Agyei',
+            'email' => 'phil@gmail.com',
+            'password' => 'kwesi',
+            'added_by_id' =>'1',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'William Ato',
+            'email' => 'williwilli@gmail.com',
+            'password' => 'asdgas',
+            'added_by_id' =>'1',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Nana Agyemang',
+            'email' => 'nanakay@live.com',
+            'password' => 'kwesi',
+            'added_by_id' =>'1',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Cudjoe Senyo',
+            'email' => 'cudge@gmail.com',
+            'password' => 'kwesi',
+            'added_by_id' =>'1',
+        ]);
     }
 }

@@ -25,4 +25,18 @@ class Location extends Model
     {
         return $this->belongsTo('App\Location');
     }
+
+    public function children()
+    {
+        $children = Location::where('parent_id', $this->id)->get();
+
+        // if(count($children) == 0) return $children;
+
+        $list = collect();
+
+        foreach($children as $child)
+            $list->merge($child->children());
+
+        return $list->merge($children);
+    }
 }

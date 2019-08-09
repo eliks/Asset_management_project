@@ -27,7 +27,7 @@
             <div class="col-md-7 col-xs-12 col-md-offset-1">
             <div class="x_panel">
                 <div class="x_title">
-                <h2>Form Basic Elements <small>different form elements</small></h2>
+               
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -86,38 +86,13 @@
                         </select>
                     </div>
                     </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">User Location</label>
+                     <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Location</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select class="select2_single form-control" tabindex="-1" name="location">
-                        <option></option>
-                        <option value="1" selected="">Alaska</option>
-                        <option value="2">Hawaii</option>
-                        <option value="3">California</option>
-                        <option value="4">Nevada</option>
-                        <option value="5">Oregon</option>
-                        <option value="6">Washington</option>
-                        <option value="7">Arizona</option>
-                        <option value="8">Colorado</option>
-                        <option value="9">Idaho</option>
-                        <option value="10">Montana</option>
-                        <option value="11">Nebraska</option>
-                        <option value="12">New Mexico</option>
-                        <option value="13">North Dakota</option>
-                        <option value="14">Utah</option>
-                        <option value="15">Wyoming</option>
-                        <option value="16">Arkansas</option>
-                        <option value="17">Illinois</option>
-                        <option value="18">Iowa</option>
-                        <option value="19">Kansas</option>
-                        <option value="20">Kentucky</option>
-                        <option value="21">Louisiana</option>
-                        <option value="22">Minnesota</option>
-                        <option value="23">Mississippi</option>
-                        <option value="24">Missouri</option>
-                        <option value="25">Oklahoma</option>
-                        <option value="26">South Dakota</option>
-                        <option value="27">Texas</option>
+                        <select class="form-control" name="location">
+                             @foreach(\App\Location::all() as $location)
+                                <option value="{{$location->id}}">{{$location->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     </div>

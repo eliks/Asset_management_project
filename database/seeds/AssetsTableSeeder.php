@@ -38,5 +38,33 @@ class AssetsTableSeeder extends Seeder
             'date_acquired' => date('y-m-d'),
             'added_by_id' => 1,
         ]);
+
+        DB::table('assets')->insert([
+            'name' => 'Cash Office Laptop PC',
+            'tag' => 'CA/OFF/LP/2011/PC/01',
+            'type_id' => 2,
+            'brand' => 'Acer',
+            'user_name' => 'Anas Agyemang',
+            'parent_id' => 3,
+            'location_id' => 9,
+            'date_commenced' => date('y-m-d'),
+            'date_disposed' => date('y-m-d'),
+            'date_acquired' => date('y-m-d'),
+            'added_by_id' => 1,
+        ]);
+
+        DB::table('assets')->insert([
+            'name' => 'UGCS Akai Dispenser',
+            'tag' => 'UG/UGCS/LAB/01',
+            'type_id' => 3,
+            'brand' => 'Akai',
+            'user_name' => 'Daniel Botwe',
+            'parent_id' => 4,
+            'location_id' => 1,
+            'date_commenced' => date('y-m-d'),
+            'date_disposed' => date('y-m-d'),
+            'date_acquired' => date('y-m-d'),
+            'added_by_id' => 1,
+        ]);
     }
 }

@@ -72,7 +72,7 @@
             <ul class="nav child_menu">
                 <li><a href="{{route('users.index')}}">All Users</a></li>
                 <li><a href="{{route('users.create')}}">New User</a></li>
-                <li><a href="#">User Types</a></li>
+                <li><a href="{{route('userslocation.index')}}">Add User to Location</a></li>
             </ul>
             </li>
             <li><a><i class="fa fa-ticket"></i> More <span class="fa fa-chevron-down"></span></a>

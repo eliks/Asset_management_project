@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Add a New Asset Here</h3>
+            <h3>Add New Asset</h3>
             </div>
 
             <div class="title_right">
@@ -27,7 +27,7 @@
             <div class="col-md-7 col-xs-12 col-md-offset-1">
             <div class="x_panel">
                 <div class="x_title">
-                <h2>Add a New Asset<small>admin</small></h2>
+             
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -81,15 +81,35 @@
                          @enderror
                     </div>
                     </div>
-                      <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Type Id</label>
+                     <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Type</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="type_id" class="form-control"  placeholder="Disabled Input" value="{{old('type_id')}}">
-                         @error('type_id')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                        <select class="form-control" name="type_id">
+                            @foreach(\App\AssetType::all() as $asset)
+                                <option value="{{$asset->id }}">{{$asset->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('type_id')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                         @enderror
+                    </div>
+                    </div>
+            
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Location</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select class="form-control" name="location_id">
+                             @foreach(\App\Location::all() as $location)
+                                <option value="{{$location->id}}">{{$location->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('location_id')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                         @enderror
                     </div>
                     </div>
                     <div class="form-group">
@@ -125,17 +145,7 @@
                     @enderror
                     </div>
                     </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Disposed</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" name="date_disposed" class="form-control" id="autocomplete-custom-append" placeholder="date disposed" value="{{old('date_disposed')}}">
-                         @error('date_disposed')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
+                   
                      <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">

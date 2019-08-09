@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\UsersLocation;
 use Illuminate\Http\Request;
+use \Validator;
 
 class UsersLocationController extends Controller
 {
@@ -14,7 +15,7 @@ class UsersLocationController extends Controller
      */
     public function index()
     {
-        //
+        return view ('userslocation.index');
     }
 
     /**
@@ -35,7 +36,32 @@ class UsersLocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $validator = Validator::make($request->all(), [
+            'name' => 'required|integer',
+            'location_id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $data = $request->all();
+
+        $cnt = count(UsersLocation::where('user_id', $data['name'])->where('location_id', $data['location_id'])->get());
+
+        if($cnt > 0)
+        {
+            return redirect('users');
+        }
+        
+        $data['user_id'] = $data['name'];
+        // return $data;
+        $user = UsersLocation::create($data);
+       
+
+        return redirect('users');
     }
 
     /**
