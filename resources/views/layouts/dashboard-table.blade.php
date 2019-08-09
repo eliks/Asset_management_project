@@ -26,6 +26,11 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('gm/build/css/custom.min.css')}}" rel="stylesheet">
+    <style type="text/css">
+        .profile_details {
+            ;
+        }
+    </style>
   </head>
 
   <body class="nav-md">
@@ -67,8 +72,34 @@
     <script src="{{asset('gm/vendors/jszip/dist/jszip.min.js')}}"></script>
     <script src="{{asset('gm/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
     <script src="{{asset('gm/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+    <script src="{{asset('gm/build/js/isotope.pkgd.min.js')}}"></script>
+
 
     <!-- Custom Theme Scripts -->
     <script src="{{asset('gm/build/js/custom.min.js')}}"></script>
+    <script type="text/javascript">
+        var $grid = $('.x_content').isotope({
+          itemSelector: '.profile_details',
+          getSortData: {
+            name: '.ref'
+          }
+        });
+
+        // 
+
+        function filterCards(){
+            $grid.isotope({ filter: function() {
+              var qstr = $('#search-bar').val().toUpperCase();
+              var name = $(this).find('.ref').text();
+              console.log(qstr)
+              return name.match( qstr );
+            } })
+
+            $('.profile_details').css({"float": "left !important",
+                                          "display": "inline-block !important"});
+        }
+
+        
+    </script>
   </body>
 </html>

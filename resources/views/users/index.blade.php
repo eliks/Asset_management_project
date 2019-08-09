@@ -13,7 +13,7 @@
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
+                    <input type="text" id="search-bar" class="form-control" placeholder="Search for..." onkeyup="filterCards()">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
@@ -27,31 +27,19 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="x_panel">
-                  <div class="x_content">
-                    <div class="row">
-                      <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                        <ul class="pagination pagination-split">
-                          <li><a href="#">A</a></li>
-                          <li><a href="#">B</a></li>
-                          <li><a href="#">C</a></li>
-                          <li><a href="#">D</a></li>
-                          <li><a href="#">E</a></li>
-                          <li>...</li>
-                          <li><a href="#">W</a></li>
-                          <li><a href="#">X</a></li>
-                          <li><a href="#">Y</a></li>
-                          <li><a href="#">Z</a></li>
-                        </ul>
-                      </div>
+                  <div class="x_content" data-isotope='{ "itemSelector": ".profile_details" }'>
+                    <div class="r6ow">
+                      
 
                       <div class="clearfix"></div>
                     @foreach($users as $user)
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                      <div class="col-md-3 col-sm-4 col-xs-12 profile_details" >
                         <div class="well profile_view">
+                            <span class="ref" style="display: none;">{{strtoupper($user->username.' '.$user->email)}}</span>
                           <div class="col-sm-12">
                             <h4 class="brief"><i>{{$user->type ? $user->type->name : ''}}</i></h4>
                             <div class="left col-xs-8">
-                              <h2>{{$user->username}}</h2>
+                              <h2 class="ref">{{$user->username}}</h2>
                               
                               <ul class="list-unstyled">
                                 <li><i class="fa fa-building"></i>Locations: {{count($user->locations)}} <a class=""><i class="fa fa-chevron-down"></i></a></li>
