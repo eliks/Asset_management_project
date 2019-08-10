@@ -29,7 +29,8 @@
                       </li>
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                     
+                      <li><a href="{{route('assets.index')}}"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -48,7 +49,7 @@
                         </li>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Asset</a>
                       <br />
 
                       <!-- Start Table -->
@@ -144,6 +145,9 @@
                                   		{{$maintenance ? $maintenance->comment : ''}}
                                   </blockquote>
                                   <br />
+                                  <div class="text-info">
+                                  <p class="month"> {{$maintenance->created_at}}</p>
+                                  </div>
                                   <div class="text-warning">
                                   <p class="month">Supervised by: {{$maintenance->supervised_by}}</p>
                                   </div>
@@ -152,6 +156,7 @@
                                @endforeach
                               </li>
                            </ul>
+                            <center><a href=""><button><i class="fa fa-plus-circle "></i> Add New Maintenance Activity</button></a></center>
                             <!-- end recent activity -->
 
                           

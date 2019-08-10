@@ -80,17 +80,17 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">User Type</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="type">
-                            <option value="1">Administrator</option>
+                            <option value="3">Administrator</option>
                             <option value="2">Custodian</option>
-                            <option value="3">Technician</option>
+                            <option value="1">Technician</option>
                         </select>
                     </div>
                     </div>
                      <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Location</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">User's Location</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="location">
-                             @foreach(\App\Location::all() as $location)
+                             @foreach(\App\Location::all()->sortBy('name') as $location)
                                 <option value="{{$location->id}}">{{$location->name}}</option>
                             @endforeach
                         </select>

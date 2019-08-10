@@ -101,7 +101,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Location</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="location_id">
-                             @foreach(\App\Location::all() as $location)
+                             @foreach(\App\Location::all()->sortBy('name') as $location)
                                 <option value="{{$location->id}}">{{$location->name}}</option>
                             @endforeach
                         </select>
@@ -124,9 +124,13 @@
                     </div>
                     </div>
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">User Name</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset's Custodian</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="user_name" class="form-control"  placeholder="Disabled Input" value="{{old('user_name')}}">
+                         <select class="form-control" name="location_id">
+                             @foreach(\App\User::all()->sortBy('username') as $user)
+                                <option value="{{$user->id}}">{{$user->username}}</option>
+                            @endforeach
+                        </select>
                          @error('user_name')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>

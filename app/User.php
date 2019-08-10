@@ -51,5 +51,10 @@ class User extends Authenticatable
     {           
         return $this->belongsTo('App\UserType');
     }
+
+    public function assets()
+    {
+        return $this->hasMany('App\Asset');
+    }
 }
 
