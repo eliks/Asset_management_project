@@ -30,6 +30,10 @@
         .profile_details {
             ;
         }
+        
+        .x_content {
+            height: auto!important;
+        }
     </style>
   </head>
 

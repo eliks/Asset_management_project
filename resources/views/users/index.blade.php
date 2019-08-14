@@ -46,7 +46,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i></a>
                                 <ul class="dropdown-menu" role="menu">
                                     @foreach($user->locations as $location)
-                                    <li><a href="#">{{$location->name}}</a></li>
+                                    <li><a href="{{route('location.show', ['id'=>$location->id])}}">{{$location->name}}</a></li>
                                     @endforeach
                                 </ul>
                                 </li>
@@ -79,6 +79,7 @@
                 </div>
               </div>
             </div>
+                    <div class="clearfix"></div>
           </div>
         </div>
         <!-- /page content -->

@@ -21,6 +21,16 @@
     <!-- Custom Theme Style -->
     <link href="{{asset('gm/build/css/custom.min.css')}}" rel="stylesheet">
 
+     <!-- <style type="text/css">
+        .profile_details {
+            ;
+        }
+        
+        .x_content {
+            height: auto!important;
+        }
+    </style> -->
+
   </head>
 
   <body class="nav-md">
@@ -55,6 +65,34 @@
     
     <!-- Custom Theme Scripts -->
     <script src="{{asset('gm/build/js/custom.min.js')}}"></script>
+    <!-- <script src="{{asset('gm/build/js/isotope.pkgd.min.js')}}"></script> -->
+
+
+    <!-- Custom Theme Scripts -->
+    <!-- <script src="{{asset('gm/build/js/custom.min.js')}}"></script>
+    <script type="text/javascript">
+        var $grid = $('.x_content').isotope({
+          itemSelector: '.profile_details',
+          getSortData: {
+            name: '.ref'
+          }
+        });
+
+        // 
+
+        function filterCards(){
+            $grid.isotope({ filter: function() {
+              var qstr = $('#search-bar').val().toUpperCase();
+              var name = $(this).find('.ref').text();
+              console.log(qstr)
+              return name.match( qstr );
+            } })
+
+            
+        }
+
+        
+    </script> -->
 
   </body>
 </html>

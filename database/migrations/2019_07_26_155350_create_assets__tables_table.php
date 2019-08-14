@@ -17,6 +17,7 @@ class CreateAssetsTablesTable extends Migration
             $table->increments('id');
             $table->string('name',64)->nullable();
             $table->integer('type_id')->nullable()->unsigned()->index();
+            $table->date('next_maintenance_date')->nullable();
             $table->string('tag',64)->nullable();
             $table->string('brand',64)->nullable();
             $table->string('user_name',64)->nullable();

@@ -97,9 +97,10 @@
                       <h4>Asset Status</h4>
                       <ul class="list-unstyled user_data">
                         <li>
-                          <p>Web Applications</p>
+                          <p>Days to maintenance: {{$asset->number_of_days_to_maintenance . ' ' .  str_plural('Day', $asset->number_of_days_to_maintenance)}}</p>
+                         
                           <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                            <div class="progress-bar {{$asset->status_colour}}" role="progressbar" data-transitiongoal="{{100-$asset->number_of_days_to_maintenance}}"></div>
                           </div>
                         </li>
                       </ul>
@@ -156,7 +157,7 @@
                                @endforeach
                               </li>
                            </ul>
-                            <center><a href=""><button><i class="fa fa-plus-circle "></i> Add New Maintenance Activity</button></a></center>
+                            <center><a href="{{route('assets.create-maintenance', ['id'=>$asset->id])}}"><button><i class="fa fa-plus-circle "></i> Add New Maintenance Activity</button></a></center>
                             <!-- end recent activity -->
 
                           

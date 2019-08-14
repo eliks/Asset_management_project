@@ -52,10 +52,10 @@
                 <tr>
                     <th>#.</th>
                     <th>Name</th>
-                    <th>Tag</th>
-                    <th>Type</th>
+                   
+                   
                     <th>Organization</th>
-                    <th>Parent</th>
+                   
                 
                     <th class="text-center">No. Assets</th>
                     <th class="text-center">Actions</th>
@@ -68,10 +68,10 @@
                         <tr>
                             <td>{{1+$key}}.</td>
                             <td>{{$location->name}}</td>
-                            <td>{{$location->tag}}</td>
-                            <td>{{$location->type ? $location->type->name : ''}}</td>
+                            
+                            
                             <td>{{$location->organization ? $location->organization->name : ''}}</td>
-                            <td>{{$location->parent? $location->parent->name : ''}}</td>
+                          
                             <!-- <td>{{$location->user_name}}</td> -->
                             <td class="text-center">{{count($location->assets)}}</td>
             

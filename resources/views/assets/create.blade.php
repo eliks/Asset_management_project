@@ -62,7 +62,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="name" class="form-control" placeholder="name" value="{{old('name')}}">
+                        <input type="text" name="name" class="form-control" placeholder="Enter Asset's name..." value="{{old('name')}}">
                          @error('name')
                                 <span class="invalid-feedback text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Tag</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="tag" class="form-control"  placeholder="Disabled Input" value="{{old('tag')}}">
+                        <input type="text" name="tag" class="form-control"  placeholder="Enter Asset's tag..." value="{{old('tag')}}">
                          @error('tag')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -115,7 +115,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="brand" class="form-control" placeholder="Read-Only Input" value="{{old('brand')}}">
+                        <input type="text" name="brand" class="form-control" placeholder="Enter Asset's brand..." value="{{old('brand')}}">
                          @error('brand')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -126,9 +126,9 @@
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset's Custodian</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                         <select class="form-control" name="location_id">
+                         <select class="form-control" name="user_name">
                              @foreach(\App\User::all()->sortBy('username') as $user)
-                                <option value="{{$user->id}}">{{$user->username}}</option>
+                                <option value="{{$user->username}}">{{$user->username}}</option>
                             @endforeach
                         </select>
                          @error('user_name')

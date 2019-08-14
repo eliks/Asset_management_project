@@ -39,12 +39,11 @@ class LocationController extends Controller
     public function store(Request $request)
     {
          $validator=Validator::make($request->all(), [
-                'name' => 'required',
+                'name' => 'required|unique:Locations', 
                 'organization_id' =>'required|numeric',
                 'tag' => 'required',
-                'parent_id' => 'required|numeric',
                 'address' => 'required',
-                'added_by_id' => 'required|numeric',
+             
                
             ], 
         );
@@ -70,11 +69,15 @@ class LocationController extends Controller
      * @param  \App\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function show(Location $location)
+    public function show( $location_id)
     {
-          $array['Locations'] = Location::findOrFail($id);
+          $array['Locations'] = Location::find($location_id);
+          $data['Locations'] = Location::with('assets')->where('id', $location_id)->first();
+        $data['next_location_id'] = $data['Locations']->next_location_id;
+        $data['previous_location_id'] = $data['Locations']->previous_location_id;
+        return view('Locations.show', $data);
         
-       return view('Locations.more')->with($array);
+       // return view('Locations.show')->with($array);
     }
 
     /**

@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
+Route::get('assets/{asset}/create_maintenance', 'AssetsController@createMaintenance')->name('assets.create-maintenance');
 Route::resource('assets', 'AssetsController');
 Route::resource('location', 'LocationController');
 Route::resource('users', 'UsersTableController');

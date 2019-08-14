@@ -44,7 +44,7 @@
                 </li>
             </ul>
             <div class="clearfix"></div>
-            </div>
+           </div>
             <div class="x_content">
             <table id="datatable" class="table table-striped table-bordered">
                 <thead>
@@ -78,9 +78,14 @@
                                 <a href="{{route('assets.edit', ['id'=>$asset->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
-                                <a href="#">
+                                <a href="{{route('assets.destroy', ['id' => $asset->id])}}" onclick="event.preventDefault(); confirm('Are you sure?', document.getElementById('delete-asset-form-{{$asset->id}}').submit());">
                                     <i class="fa fa-trash text-danger"></i>
                                 </a>
+
+                                <form id="delete-asset-form-{{$asset->id}}" action="{{ route('assets.destroy', ['id' => $asset->id]) }}" method="POST" style="display: none;">
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -92,5 +97,6 @@
     </div>
     </div>
 </div>
+
 <!-- /page content -->
 @endsection

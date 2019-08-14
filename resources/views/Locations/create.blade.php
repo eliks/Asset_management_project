@@ -62,7 +62,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Location Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="name" class="form-control" placeholder="name" value="{{old('name')}}">
+                        <input type="text" name="name" class="form-control" placeholder="Enter location name..." value="{{old('name')}}">
                          @error('name')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Location Tag</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="tag" class="form-control"  placeholder="Disabled Input" value="{{old('tag')}}">
+                        <input type="text" name="tag" class="form-control"  placeholder="Enter location tag..." value="{{old('tag')}}">
                          @error('tag')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -84,7 +84,7 @@
                       <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Organization</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="organization_id" class="form-control"  placeholder="Disabled Input" value="{{old('organization_id')}}">
+                        <input type="text" name="organization_id" class="form-control"  placeholder="Enter organization ID..." value="{{old('organization_id')}}">
                          @error('organization_id')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -95,7 +95,13 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Parent</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="parent_id" class="form-control" placeholder="Read-Only Input" value="{{old('parent_id')}}">
+                        
+                         <select class="form-control" name="parent_id">
+                            <option value="{{old('parent_id')}}">None</option>
+                             @foreach(\App\Location::all()->sortBy('name') as $parent)  
+                                <option value="{{$parent->id}}">{{$parent->name}}</option>
+                            @endforeach
+                        </select>
                          @error('parent_id')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -103,10 +109,11 @@
                     @enderror
                     </div>
                     </div>
+                   
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="address" class="form-control"  placeholder="Disabled Input" value="{{old('address')}}">
+                        <input type="text" name="address" class="form-control"  placeholder="Enter location address..." value="{{old('address')}}">
                          @error('address')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -114,17 +121,7 @@
                     @enderror
                     </div>
                     </div>
-                    <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Added By</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="added_by_id" class="form-control" value="date commenced" value="{{old('added_id')}}">
-                         @error('added_id')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    </div>
-                    </div>
+                    
                    <!--  <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Disposed</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">

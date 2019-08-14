@@ -6,7 +6,8 @@ use App\Asset;
 use App\User;
 use App\Location;
 use Illuminate\Http\Request;
-use\Validator;
+use \Validator;
+use Illuminate\Validation\Rule;
 
 class AssetsController extends Controller
 {
@@ -90,9 +91,13 @@ class AssetsController extends Controller
      * @param  \App\Assets_Table  $assets_Table
      * @return \Illuminate\Http\Response
      */
-    public function edit(Assets_Table $assets_Table)
+    public function edit($id)
     {
-        //
+           // $array['assets'] = Asset::find($assets_Table);
+           // return view('assets.edit')->with($array);
+         // return view('assets.edit',$data);
+        $data['asset'] = Asset::find($id);
+        return view('assets.edit', $data);
     }
 
     /**
@@ -102,10 +107,44 @@ class AssetsController extends Controller
      * @param  \App\Assets_Table  $assets_Table
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Assets_Table $assets_Table)
+    public function update(Request $request,  $id)
     {
-        //
+        $input_data = $request->all();
+
+        $validator=Validator::make($input_data, [
+                'name' => 'required',
+                'type_id' =>'required|numeric',
+                'tag' => 'required',
+                'date_commenced' => 'required',
+                'date_acquired' => 'required|date',
+                'location_id'=>'required',
+            ],
+        );
+
+        $asset = Asset::find($id);
+
+        $validator->after(function() use ($asset,$input_data,$validator){
+            if($asset->tag != $input_data['tag'] && count(Asset::where('tag',$input_data['tag'])->get()) > 0){
+                $validator->errors()->add('tag','The tag specified has already been taken.');
+            }
+        });
+
+        if ($validator->fails()) {
+            // return $request;
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+      $data = $request->all();
+      $asset->update($data);
+
+      return redirect(route('assets.index'))->with('success', 'Stock has been updated');
+
     }
+    
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -113,8 +152,23 @@ class AssetsController extends Controller
      * @param  \App\Assets_Table  $assets_Table
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Assets_Table $assets_Table)
+    public function destroy($id)
     {
-        //
+        // return 'sdsd';
+        
+     $asset = Asset::find($id);
+     $asset->delete();
+
+     return redirect(route('assets.index'))->with('success', 'Asset has been deleted Successfully');
+
+    }
+
+    public function createMaintenance($asset_id)
+    {
+        $data['asset_id'] = $asset_id;
+
+        return view('assets.create_maintenance', $data)
+            // ->with('message', $message)
+            ;
     }
 }
