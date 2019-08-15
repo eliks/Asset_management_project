@@ -62,6 +62,11 @@ class Asset extends Model
         }
 
         return 'bg-green';
+
+        // if($this->number_of_days_to_maintenance == 0)
+        // {
+        //     return "This asset need to be maintained";
+        // }
     }
 
 

@@ -49,7 +49,7 @@
                         </li>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Asset</a>
+                      <a class="btn btn-success" href="{{route('assets.edit', ['id'=>$asset->id])}}"><i class="fa fa-edit m-right-xs"></i>Edit Asset</a>
                       <br />
 
                       <!-- Start Table -->

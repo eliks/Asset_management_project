@@ -71,8 +71,7 @@
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
                
-                <li><a class="close-link" href="{{route('location.index')}}"><i class="fa fa-close"></i></a>
-                </li>
+               
             </ul>
             <div class="clearfix"></div>
             </div>
@@ -102,7 +101,7 @@
 
         <!-- End Table -->
 
-                      <!-- start skills -->
+              
                       
                        
 
@@ -156,8 +155,8 @@
                                   </div>
                                 </li>
                               </ul>
-                              <button type="button" class="btn btn-success btn-xs"> <i class="e">
-                                </i> <i class="fa fa-edit"></i> </button>
+                              <a href="{{route('assets.edit', ['id'=>$asset->id])}}"><button type="button" class="btn btn-success btn-xs"> <i class="e">
+                                </i> <i class="fa fa-edit"></i> </button></a>
                               <a href="{{route('assets.show', ['id'=>$asset->id])}}"><button type="button" class="btn btn-primary btn-xs">
                                 <i class="fa fa-cube"> </i> Asset Details
                               </button></a>  

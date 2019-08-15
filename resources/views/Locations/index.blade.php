@@ -79,7 +79,7 @@
                                 <a href="{{route('location.show', ['id'=>$location->id])}}">
                                     <i class="fa fa-search-plus text-info"></i>
                                 </a>
-                                <a href="{{route('assets.edit', ['id'=>$location->id])}}">
+                                <a href="{{route('location.edit', ['id'=>$location->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
                                 <a href="#">

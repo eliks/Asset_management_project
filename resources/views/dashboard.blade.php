@@ -7,34 +7,34 @@
     <div class="row top_tiles">
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
-            <div class="count">179</div>
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <div class="icon"><i class="fa fa-cubes"></i></div>
+            <div class="count">{{count(\App\Asset::all())}}</div>
+            <h3>Total Assets</h3>
+            <p>View  more details</p>
         </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-comments-o"></i></div>
-            <div class="count">179</div>
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <div class="icon"><i class="fa fa-users"></i></div>
+            <div class="count">{{count(\App\User::all())}}</div>
+            <h3>Total Users</h3>
+            <p>View  more details</p>
         </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-            <div class="count">179</div>
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <div class="icon"><i class="fa fa-map-marker"></i></div>
+            <div class="count">{{count(\App\Location::all())}}</div>
+            <h3>Total Locations</h3>
+            <p>View  more details</p>
         </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-check-square-o"></i></div>
-            <div class="count">179</div>
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <div class="icon"><i class="fa fa-wrench"></i></div>
+            <div class="count">{{count(\App\MaintenanceActivities::all())}}</div>
+            <h3>Maintenance Activities</h3>
+            <p>View  more details</p>
         </div>
         </div>
     </div>
