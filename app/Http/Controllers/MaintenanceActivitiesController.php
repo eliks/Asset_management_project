@@ -101,4 +101,42 @@ class MaintenanceActivitiesController extends Controller
     {
         //
     }
+
+    public function apiMaintenanceTrend()
+    {
+        $days_ago = 30;
+        $data_date = date('Y-m-d', strtotime('now -'.$days_ago.' days'));
+        $maintenanceActivities = MaintenanceActivities::where('created_at', '>=', $data_date)
+                        ->groupBy('date')
+                        ->orderBy('date', 'DESC')
+                        ->get(array(
+                            \DB::raw('DATE_FORMAT(Date(created_at), "%Y-%m-%d") as date'),
+                            \DB::raw('COUNT(*) as "mcount"')
+                        ));
+
+        $retData = [];
+
+        for($i = $days_ago - 1; $i >= 0; $i--)
+        {
+            $temp_time = strtotime(date('Y-m-d', strtotime('now -'.$i.' days')));
+            $retData[$temp_time] = [$temp_time, 0];
+        }
+
+        foreach($maintenanceActivities as $maintenanceActivity)
+        {
+            $temp_time = strtotime($maintenanceActivity->date);
+            $retData[$temp_time] = [$temp_time, $maintenanceActivity->mcount];
+        }
+
+
+        $ret = [];
+
+        foreach($retData as $rt)
+        {
+            // $temp_time = strtotime(date('Y-m-d', strtotime('now -'.$i.' days')));
+            $ret[] = [$rt[0], $rt[1]];
+        }
+
+        return $ret;
+    }
 }

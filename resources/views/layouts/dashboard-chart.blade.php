@@ -64,6 +64,6 @@
     <script src="{{asset('gm/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     
     <!-- Custom Theme Scripts -->
-    <script src="{{asset('gm/build/js/custom.min.js')}}"></script>
+    <script src="{{asset('gm/build/js/custom.js')}}"></script>
   </body>
 </html>

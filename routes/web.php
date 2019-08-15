@@ -21,6 +21,9 @@ Route::resource('users', 'UsersTableController');
 Route::resource('maintenance', 'MaintenanceActivitiesController');
 Route::resource('userslocation', 'UsersLocationController');
 
+Route::get('api/maintenance_trend', 'MaintenanceActivitiesController@apiMaintenanceTrend')->name('api.maintenance_trend');
+
+
 Route::get('/', function () {
     return view('welcome');
 });

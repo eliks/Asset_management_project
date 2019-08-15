@@ -387,6 +387,15 @@ if (typeof NProgress != 'undefined') {
 		];
 		
 		var chart_plot_02_data = [];
+
+		$.ajax({
+		  url: 'api/maintenance_trend',
+		  data: {},
+		  success: function(data){
+		  	chart_plot_02_data = data;
+		  	showChart2(data);
+		  } 	
+		});
 		
 		var chart_plot_03_data = [
 			[0, 1],
@@ -409,9 +418,11 @@ if (typeof NProgress != 'undefined') {
 		];
 		
 		
-		for (var i = 0; i < 30; i++) {
-		  chart_plot_02_data.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
-		}
+		// for (var i = 0; i < 30; i++) {
+		//   chart_plot_02_data.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
+		// }
+
+		// console.log('data----: ', chart_plot_02_data);
 		
 		
 		var chart_plot_01_settings = {
@@ -459,6 +470,63 @@ if (typeof NProgress != 'undefined') {
           tooltip: false
         }
 		
+		
+	
+		var chart_plot_03_settings = {
+			series: {
+				curvedLines: {
+					apply: true,
+					active: true,
+					monotonicFit: true
+				}
+			},
+			colors: ["#26B99A"],
+			grid: {
+				borderWidth: {
+					top: 0,
+					right: 0,
+					bottom: 1,
+					left: 1
+				},
+				borderColor: {
+					bottom: "#7F8790",
+					left: "#7F8790"
+				}
+			}
+		};
+        
+		
+        if ($("#chart_plot_01").length){
+			console.log('Plot1');
+			
+			$.plot( $("#chart_plot_01"), [ arr_data1, arr_data2 ],  chart_plot_01_settings );
+		}
+		
+		
+		
+		
+		if ($("#chart_plot_03").length){
+			console.log('Plot3');
+			
+			
+			$.plot($("#chart_plot_03"), [{
+				label: "Registrations",
+				data: chart_plot_03_data,
+				lines: {
+					fillColor: "rgba(150, 202, 89, 0.12)"
+				}, 
+				points: {
+					fillColor: "#fff"
+				}
+			}], chart_plot_03_settings);
+			
+		};
+	  
+	}
+
+	function showChart2(data){
+		console.log(data,"the data");
+		var chart_plot_02_data = data;
 		var chart_plot_02_settings = {
 			grid: {
 				show: true,
@@ -515,45 +583,14 @@ if (typeof NProgress != 'undefined') {
 				min: 0
 			},
 			xaxis: {
-				mode: "time",
+				mode: "date",
 				minTickSize: [1, "day"],
 				timeformat: "%d/%m/%y",
 				min: chart_plot_02_data[0][0],
-				max: chart_plot_02_data[20][0]
+				max: chart_plot_02_data[29][0]
 			}
 		};	
-	
-		var chart_plot_03_settings = {
-			series: {
-				curvedLines: {
-					apply: true,
-					active: true,
-					monotonicFit: true
-				}
-			},
-			colors: ["#26B99A"],
-			grid: {
-				borderWidth: {
-					top: 0,
-					right: 0,
-					bottom: 1,
-					left: 1
-				},
-				borderColor: {
-					bottom: "#7F8790",
-					left: "#7F8790"
-				}
-			}
-		};
-        
-		
-        if ($("#chart_plot_01").length){
-			console.log('Plot1');
-			
-			$.plot( $("#chart_plot_01"), [ arr_data1, arr_data2 ],  chart_plot_01_settings );
-		}
-		
-		
+
 		if ($("#chart_plot_02").length){
 			console.log('Plot2');
 			
@@ -569,24 +606,6 @@ if (typeof NProgress != 'undefined') {
 			}], chart_plot_02_settings);
 			
 		}
-		
-		if ($("#chart_plot_03").length){
-			console.log('Plot3');
-			
-			
-			$.plot($("#chart_plot_03"), [{
-				label: "Registrations",
-				data: chart_plot_03_data,
-				lines: {
-					fillColor: "rgba(150, 202, 89, 0.12)"
-				}, 
-				points: {
-					fillColor: "#fff"
-				}
-			}], chart_plot_03_settings);
-			
-		};
-	  
 	} 
 	
 		

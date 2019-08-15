@@ -58,7 +58,7 @@
                       </ul>
 
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Location</a>
+                      <a class="btn btn-success" href="{{route('location.edit', ['id'=>$Locations->id])}}"><i class="fa fa-edit m-right-xs"></i>Edit Location</a>
                       <br />
 
                       <!-- Start Table -->

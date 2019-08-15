@@ -75,17 +75,69 @@
                             <td>{{$maintenance->asset ? $maintenance->asset->user_name : '' }}</td>
                             
                            <td class="text-center">
-                                <a href="{{route('maintenance.show', ['id'=>$maintenance->id])}}">
+                                <a data-toggle="modal" data-target="#maintenance-modal-{{$maintenance->id}}">
                                     <i class="fa fa-search-plus text-info"></i>
                                 </a>
+
                                 <a href="{{route('maintenance.edit', ['id'=>$maintenance->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
                                 <a href="#">
                                     <i class="fa fa-trash text-danger"></i>
                                 </a>
+                                  <div class="modal fade bs-example-modal-lg" id="maintenance-modal-{{$maintenance->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-md">
+                              <div class="modal-content">
+
+                                 <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                  </button>
+                                    <h1 class="modal-title" id="myModalLabel">Maintenance Details</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>Asset Name: {{$maintenance->asset_name}}</h4>
+                                
+                                    <table id="datatable" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Description</th>
+                                                <td>{{$maintenance->description}}</td>
+                                           </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>Maintained by</th>
+                                                <td>{{$maintenance->maintained_by}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Supervised at</th>
+                                                <td>{{$maintenance->supervised_by}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Maintained at</th>
+                                                <td>{{$maintenance->maintained_at}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Maintenance Location</th>
+                                                <td>{{$maintenance->location}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Comment</th>
+                                                <td>{{$maintenance->comment}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                             </td>
                         </tr>
+
+                      
                     @endforeach
                 </tbody>
             </table>
