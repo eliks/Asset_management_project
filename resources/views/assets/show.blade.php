@@ -104,6 +104,8 @@
                           </div>
                         </li>
                       </ul>
+
+                      <center><a href="{{route('assets.schedule', ['id'=>$asset->id])}}"><button><i class="fa fa-calendar "></i> Schedule Next Maintenance</button></a></center>
                        
 
                     </div>

@@ -15,6 +15,8 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('assets/{asset}/create_maintenance', 'AssetsController@createMaintenance')->name('assets.create-maintenance');
+Route::get('assets/{asset}/schedule', 'AssetsController@scheduleMaintenance')->name('assets.schedule');
+Route::patch('assets/{asset}/schedule', 'AssetsController@schedule')->name('patch.assets.schedule');
 Route::resource('assets', 'AssetsController');
 Route::resource('location', 'LocationController');
 Route::resource('users', 'UsersTableController');

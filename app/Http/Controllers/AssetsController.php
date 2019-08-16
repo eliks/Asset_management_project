@@ -70,6 +70,32 @@ class AssetsController extends Controller
        return redirect(route('assets.index'));
     }
 
+     public function schedule(Request $request, $asset_id)
+        {
+            $validator=Validator::make($request->all(), [
+                'next_maintenance_date' => 'required|date',
+            ],
+        );
+
+         if ($validator->fails()) {
+            // return $request;
+            return redirect(route('assets.schedule', ['id'=>$asset_id]))
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $asset = Asset::find($asset_id);
+            // return $request;
+
+
+       $data = $request->all();
+
+       $asset->update(['next_maintenance_date'=>$data['next_maintenance_date']]);
+
+       return redirect(route('assets.show', ['id'=>$asset->id]));
+
+   }
+
     /**
      * Display the specified resource.
      *
@@ -168,6 +194,16 @@ class AssetsController extends Controller
         $data['asset_id'] = $asset_id;
 
         return view('assets.create_maintenance', $data)
+            // ->with('message', $message)
+            ;
+    }
+
+    public function scheduleMaintenance($asset_id)
+    {
+        $data['asset_id'] = $asset_id;
+        $data['asset'] = Asset::find($asset_id);
+
+        return view('assets.schedule', $data)
             // ->with('message', $message)
             ;
     }

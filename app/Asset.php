@@ -11,6 +11,7 @@ class Asset extends Model
             
      protected $fillable = ['name','type_id', 'tag', 'next_maintenance_date', 'brand', 'user_name', 'date_commenced', 'date_acquired', 'location_id','added_by_id'];
 
+
     public function getNextAssetIdAttribute()
     {
         $assets = Self::where('id', '>', $this->id)->orderBy('id','ASC');
