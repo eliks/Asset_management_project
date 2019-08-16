@@ -209,7 +209,7 @@
       'sqlite' => 
       array (
         'driver' => 'sqlite',
-        'database' => 'asappro',
+        'database' => 'asappdb',
         'prefix' => '',
       ),
       'mysql' => 
@@ -217,7 +217,7 @@
         'driver' => 'mysql',
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'asappro',
+        'database' => 'asappdb',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',

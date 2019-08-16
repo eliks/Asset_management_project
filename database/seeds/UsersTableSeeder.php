@@ -13,50 +13,50 @@ class UsersTableSeeder extends Seeder
     {
  		DB::table('users')->insert([
             'username' => 'James Baah',
-            'email' => 'baah22@gmail.com',
-            'password' => 'kwesi',
+            'email' => 'ghana@gmail.com',
+            'password' => Hash::make('nana'),
             'added_by_id' =>'1',
         ]);
 
         DB::table('users')->insert([
             'username' => 'Prince charles',
             'email' => 'princy@gmail.com',
-            'password' => 'chacha',
+            'password' => Hash::make('chacha'),
             'added_by_id' =>'1',
         ]);
 
         DB::table('users')->insert([
             'username' => 'Lydia Amaaley',
             'email' => 'lydama@yahoo.com.com',
-            'password' => 'lydialydia',
+            'password' =>Hash::make ('lydialydia'),
             'added_by_id' =>'1',
         ]);
 
         DB::table('users')->insert([
             'username' => 'Philomena Agyei',
             'email' => 'phil@gmail.com',
-            'password' => 'kwesi',
+            'password' =>Hash::make('kwesi'),
             'added_by_id' =>'1',
         ]);
 
         DB::table('users')->insert([
             'username' => 'William Ato',
             'email' => 'williwilli@gmail.com',
-            'password' => 'asdgas',
+            'password' => Hash::make('asdgas'),
             'added_by_id' =>'1',
         ]);
 
         DB::table('users')->insert([
             'username' => 'Nana Agyemang',
             'email' => 'nanakay@live.com',
-            'password' => 'kwesi',
+            'password' =>Hash::make('kwesi'),
             'added_by_id' =>'1',
         ]);
 
         DB::table('users')->insert([
             'username' => 'Cudjoe Senyo',
             'email' => 'cudge@gmail.com',
-            'password' => 'kwesi',
+            'password' =>Hash::make('kwesi'),
             'added_by_id' =>'1',
         ]);
     }

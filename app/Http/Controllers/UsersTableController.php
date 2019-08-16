@@ -46,6 +46,7 @@ class UsersTableController extends Controller
             'type' => 'required',
             // 'location' => 'required'
         ]);
+    
 
         if ($validator->fails()) {
             return redirect()->back()

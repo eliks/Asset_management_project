@@ -47,7 +47,7 @@
                             <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                             <input type="email" class="form-control" placeholder="email"  value="{{ old('email') }}" required autofocus>
+                             <input type="email" name="email" class="form-control" placeholder="email"  value="{{ old('email') }}" required autofocus>
                               @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -58,7 +58,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" class="form-control" placeholder="password" required>
+                        <input type="password" name="password" class="form-control" placeholder="password" required>
                            @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
