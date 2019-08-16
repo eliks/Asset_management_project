@@ -85,7 +85,12 @@
                       <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Organization</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="organization_id" class="form-control"  placeholder="Enter organization ID..." value="{{old('organization_id')?old('organization_id'):$location->organization_id}}">
+                        <select class="form-control" name="organization_id">
+                            <option value="{{old('organization_id')}}">None</option>
+                             @foreach(\App\organization::all()->sortBy('name') as $organization)  
+                                <option value="{{old('organization_id')?old('organization_id'):$organization->organization_id}}" {{$organization->id == $location->organization_id? "selected":""}}>{{$organization->name}}</option>
+                            @endforeach
+                        </select>
                          @error('organization_id')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -100,7 +105,7 @@
                          <select class="form-control" name="parent_id">
                             <option value="{{old('parent_id')}}">None</option>
                              @foreach(\App\Location::all()->sortBy('name') as $parent)  
-                                <option value="{{old('parent_id')?old('parent_id'):$location->parent_id}}">{{$parent->name}}</option>
+                                <option value="{{old('parent_id')?old('parent_id'):$parent->parent_id}}" {{$parent->id == $location->parent_id? "selected":""}}>{{$parent->name}}</option>
                             @endforeach
                         </select>
                          @error('parent_id')

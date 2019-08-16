@@ -54,7 +54,11 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" class="form-control" name="asset_id" placeholder="Enter the name of asset">
+                        <select class="form-control" name="asset_id">
+                            @foreach(\App\Asset::all() as $asset)
+                                <option value="{{$asset->id }}">{{$asset->name}}</option>
+                            @endforeach
+                        </select>
                         @error ('asset_id')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{$message}}</strong>

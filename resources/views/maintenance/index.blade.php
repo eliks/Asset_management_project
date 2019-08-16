@@ -95,7 +95,7 @@
                                     <h1 class="modal-title" id="myModalLabel">Maintenance Details</h1>
                                 </div>
                                 <div class="modal-body">
-                                    <h4>Asset Name: {{$maintenance->asset_name}}</h4>
+                                    <h4 class="text-warning">Asset Name: {{$maintenance->asset_name}}</h4>
                                 
                                     <table id="datatable" class="table table-striped table-bordered">
                                         <thead>

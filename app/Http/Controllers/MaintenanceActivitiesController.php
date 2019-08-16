@@ -106,11 +106,11 @@ class MaintenanceActivitiesController extends Controller
     {
         $days_ago = 30;
         $data_date = date('Y-m-d', strtotime('now -'.$days_ago.' days'));
-        $maintenanceActivities = MaintenanceActivities::where('created_at', '>=', $data_date)
+        $maintenanceActivities = MaintenanceActivities::where('maintained_at', '>=', $data_date)
                         ->groupBy('date')
                         ->orderBy('date', 'DESC')
                         ->get(array(
-                            \DB::raw('DATE_FORMAT(Date(created_at), "%Y-%m-%d") as date'),
+                            \DB::raw('DATE_FORMAT(Date(maintained_at), "%Y-%m-%d") as date'),
                             \DB::raw('COUNT(*) as "mcount"')
                         ));
 

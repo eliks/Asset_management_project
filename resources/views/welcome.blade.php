@@ -33,7 +33,7 @@
                     <div class="col-md-4" style=" height: 250px; margin-top: 150px; background-color: #153d6fe0;height: 370px;
                         margin-top: auto;
                        margin-bottom: auto;
-                        width: 400px;"> 
+                        width: 400px; border-radius: 25px;"> 
                         <div class="card-body">
                     
                      <div class="row">  

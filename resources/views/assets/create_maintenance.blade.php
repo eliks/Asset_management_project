@@ -54,7 +54,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select class="form-control">
+                        <select class="form-control" name="asset_id">
                             @foreach(App\Asset::all() as $asset)
                                 <option value="{{$asset->id}}" {{$asset->id == $asset_id? "selected":""}}>{{$asset->name}}</option>
                             @endforeach

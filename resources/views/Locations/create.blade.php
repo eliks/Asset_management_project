@@ -84,7 +84,12 @@
                       <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Organization</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" name="organization_id" class="form-control"  placeholder="Enter organization ID..." value="{{old('organization_id')}}">
+                        <select class="form-control" name="organization_id">
+                            <option value="{{old('organization_id')}}">None</option>
+                             @foreach(\App\organization::all()->sortBy('name') as $organization)  
+                                <option value="{{$organization->id}}">{{$organization->name}}</option>
+                            @endforeach
+                        </select>
                          @error('organization_id')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>

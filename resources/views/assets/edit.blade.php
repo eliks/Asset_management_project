@@ -127,10 +127,8 @@
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset's Custodian</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                         <select class="form-control" name="user_name">
-                             @foreach(\App\User::all()->sortBy('username') as $user)
-                                <option value="{{$user->username}}" {{$user->id == $asset->username? "selected":""}}>{{$user->username}}</option>
-                            @endforeach
+                         <input type="text" name="user_name" class="form-control" placeholder="Enter Custodian's name..." value="{{old('user_name')?old('user_name'):$asset->user_name}}">
+                           
                         </select>
                          @error('user_name')
                         <span class="invalid-feedback text-danger" role="alert">
