@@ -39,7 +39,7 @@
                     
                      <div class="row">  
 
-                      <h4 class="text-center" style="color:#d9dddc; text-align: center; margin-left: 50px">UG ASSET MANAGER</h4>
+                      <h4 class="text-center" style="color:#d9dddc; text-align: center; margin-left: 50px"><span style="font-weight: 50px; font-size: 40px; font-family: "Times New Roman";>UG</span> ASSET MANAGER</h4>
                      </div>
                     <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -51,10 +51,11 @@
                              <input type="email" name="email" class="form-control" placeholder="email"  value="{{ old('email') }}" required autofocus>
                               @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong style="color: white;">{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                     </div>
+                    <br>
                     <div class="input-group form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -66,27 +67,20 @@
                                     </span>
                                 @endif
                     </div>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Remember Me
-                    </div>
-                     <div class="form-group">
-                        <input type="submit" value="Sign Up" class="btn float-left signup_btn">
-
-                    <div class="form-group">
+                    <div class="form-group" style="margin-right: 80px; margin-top: 50px;">
                         <input type="submit" value="Login" class="btn float-right login_btn">
                     </div>
-
-                    </div>
-
+                   
                 </form>
-                    <div class="card-footer">
-                
-                
+                   
             </div>
-            </div>
+
 
          </div>
+       
+
      </div> 
+
      
     </div>  
 

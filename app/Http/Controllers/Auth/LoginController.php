@@ -26,6 +26,22 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    public function redirectPath()
+{
+    if (\Auth::user()->type_id == 3) {
+        return "/home";
+        // or return route('routename');
+    }
+    elseif (\Auth::user()->type_id == 2) {
+        return "/assets";
+    }
+     elseif (\Auth::user()->type_id == 1) {
+        return "/maintenance";
+    }
+
+  
+    // or return route('routename');
+}
 
     /**
      * Create a new controller instance.
