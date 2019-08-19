@@ -93,6 +93,10 @@
                     <th>Location Address</th>
                     <td>{{$Locations->address}}</td>
                   </tr>
+                  <tr>
+                    <th>Organisation</th>
+                    <td>{{$Locations->organization ? $Locations->organization->name : ''}}</td>
+                  </tr>
                 </tbody>
             </table>
             </div>

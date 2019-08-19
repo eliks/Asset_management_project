@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserLocationsTableSeeder::class);
         $this->call(MaintenanceActivitiesSeeder::class);
         $this->call(AssetTypeSeeder::class);
+        $this->call(OrganizationsTableSeeder::class);
     }
 }

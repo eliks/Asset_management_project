@@ -2,12 +2,13 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}">
+<link rel="shortcut icon" href="{{asset('gm/production/images/favicon.ico')}}" type="image/x-icon" />
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+    <title> UG Asset Mananger | Login </title>
    <!--Made with love by Mutiullah Samim -->
    
     <!--Bootsrap 4 CDN-->

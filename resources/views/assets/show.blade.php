@@ -85,6 +85,10 @@
                 		<th>Brand</th>
                 		<td>{{$asset->brand}}</td>
                 	</tr>
+                  <tr>
+                    <th>Maintenance Due</th>
+                    <td>{{$asset->next_maintenance_date}}</td>
+                  </tr>
                 </tbody>
             </table>
             </div>
@@ -134,7 +138,7 @@
                                 <ul class="list-unstyled">
                                     <li><a href=""><p class="month"> <i class="fa fa-wrench"></i> {{$maintenance? $maintenance->maintained_by : ''}}</a></p>
                                     </li>
-                                    <li><a href="" class=""><p class="month"> <i class="fa fa-search-plus"></i> See Maintenance Details</a></p>
+                                    <li><a  data-toggle="modal" data-target="#maintenance-modal-{{$maintenance->id}}"><p class="month"> <i class="fa fa-search-plus"></i> See Maintenance Details</a></p>
                                     </li>
 
 
@@ -159,7 +163,10 @@
                                @endforeach
                               </li>
                            </ul>
-                            <center><a href="{{route('assets.create-maintenance', ['id'=>$asset->id])}}"><button><i class="fa fa-plus-circle "></i> Add New Maintenance Activity</button></a></center>
+                           <center><a href="{{route('assets.create-maintenance', ['id'=>$asset->id])}}"><button><i class="fa fa-plus-circle "></i> Add New Maintenance Activity</button></a></center>
+
+                         
+                            
                             <!-- end recent activity -->
 
                           
@@ -167,62 +174,21 @@
                           <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
 
                             <!-- start user projects -->
-                            <table class="data table table-striped no-margin">
-                              <thead>
+                            <table id="datatable" class="table table-striped table-bordered">
+                                <thead>
                                 <tr>
-                                  <th>#</th>
-                                  <th>Project Name</th>
-                                  <th>Client Company</th>
-                                  <th class="hidden-phone">Hours Spent</th>
-                                  <th>Contribution</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>New Company Takeover Review</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">18</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>New Partner Contracts Consultanci</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">13</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-danger" data-transitiongoal="15"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>3</td>
-                                  <td>Partners and Inverstors report</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">30</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="45"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>4</td>
-                                  <td>New Company Takeover Review</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">28</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="75"></div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
+                                    <th>Date Acquired</th>
+                                    <td>{{$asset->date_acquired}}</td>
+                                </thead>
+
+                                <tbody>
+                                  <tr>
+                                    <th>First Use</th>
+                                    <td>{{$asset->date_commenced}}</td>
+                                  </tr>
+                                  <tr>
+                                </tbody>
+
                             </table>
                             <!-- end user projects -->
 

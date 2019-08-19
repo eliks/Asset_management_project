@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>UG Asset Manager | </title>
+    <title>UG Asset Manager | Dashboard </title>
 
     <!-- Bootstrap -->
     <link href="{{asset('gm/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -17,6 +17,8 @@
     <link href="{{asset('gm/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
     <link href="{{asset('gm/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{asset('gm/production/images/favicon.ico')}}" type="image/x-icon" />
 
     <!-- Custom Theme Style -->
     <link href="{{asset('gm/build/css/custom.min.css')}}" rel="stylesheet">

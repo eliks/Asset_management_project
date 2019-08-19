@@ -54,9 +54,7 @@
                     <th>Asset</th>
                     <th>Description</th>
                     <th>Date Maintained </th>
-                    <th>Maintained By</th>
-                    <th>Supervised By</th>
-                    <th>Asset Custodian</th>
+                    
                     <th class="text-center">Actions</th>
                 </tr>
                 </thead>
@@ -70,9 +68,7 @@
                             <td>{{$maintenance->asset_name}}</td>
                             <td>{{$maintenance->description}}</td>
                             <td>{{$maintenance->maintained_at}}</td>
-                            <td>{{$maintenance->maintained_by}}</td>
-                            <td>{{$maintenance->supervised_by}}</td>
-                            <td>{{$maintenance->asset ? $maintenance->asset->user_name : '' }}</td>
+                           
                             
                            <td class="text-center">
                                 <a data-toggle="modal" data-target="#maintenance-modal-{{$maintenance->id}}">
@@ -82,9 +78,16 @@
                                 <a href="{{route('maintenance.edit', ['id'=>$maintenance->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
-                                <a href="#">
+                                <a href="{{route('maintenance.destroy', ['id' => $maintenance->id])}}" onclick="event.preventDefault(); confirm('Are you sure?', document.getElementById('delete-maintenance-form-{{$maintenance->id}}').submit());">
                                     <i class="fa fa-trash text-danger"></i>
                                 </a>
+
+                                     <form id="delete-maintenance-form-{{$maintenance->id}}" action="{{ route('maintenance.destroy', ['id' => $maintenance->id]) }}" method="POST" style="display: none;">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                    </form>
+
+
                                   <div class="modal fade bs-example-modal-lg" id="maintenance-modal-{{$maintenance->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-md">
                               <div class="modal-content">
@@ -110,7 +113,7 @@
                                                 <td>{{$maintenance->maintained_by}}</td>
                                             </tr>
                                             <tr>
-                                                <th>Supervised at</th>
+                                                <th>Supervised by</th>
                                                 <td>{{$maintenance->supervised_by}}</td>
                                             </tr>
                                             <tr>

@@ -165,7 +165,7 @@ class AssetsController extends Controller
       $data = $request->all();
       $asset->update($data);
 
-      return redirect(route('assets.index'))->with('success', 'Stock has been updated');
+      return redirect(route('assets.index'))->with('success', 'Asset has been updated');
 
     }
     

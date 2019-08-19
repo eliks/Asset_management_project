@@ -60,11 +60,16 @@
                           <div class="col-xs-12 bottom">
                             
                             <div class="col-xs-12  emphasis">
-                              <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
-                                </i> <i class="fa fa-edit"></i> </button>
-                              <button type="button" class="btn btn-primary btn-xs">
-                                <i class="fa fa-user"> </i> User Details
-                              </button>    
+                              <a href="{{route('users.edit', ['id'=>$user->id])}}"><button type="button" class="btn btn-info btn-xs"> <i class="fa fa-user">
+                                </i> <i class="fa fa-edit"></i> </button></a>
+                                <a href="{{route('users.destroy', ['id' => $user->id])}}" onclick="event.preventDefault(); confirm('Are you sure you want to delete User?', document.getElementById('delete-user-form-{{$user->id}}').submit());"><button type="button" class="btn btn-danger btn-xs"> <i class="fa fa-trash">
+                                </i></button></a>
+
+                                 <form id="delete-user-form-{{$user->id}}" action="{{ route('users.destroy', ['id' => $user->id]) }}" method="POST" style="display: none;">
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                </form>
+                                 
                             </div>
 
                           </div>

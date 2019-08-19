@@ -88,7 +88,7 @@
                         <select class="form-control" name="organization_id">
                             <option value="{{old('organization_id')}}">None</option>
                              @foreach(\App\organization::all()->sortBy('name') as $organization)  
-                                <option value="{{old('organization_id')?old('organization_id'):$organization->organization_id}}" {{$organization->id == $location->organization_id? "selected":""}}>{{$organization->name}}</option>
+                                <option value="{{old('organization_id')?old('organization_id'):$organization->id}}" {{$organization->id == $location->organization_id? "selected":""}}>{{$organization->name}}</option>
                             @endforeach
                         </select>
                          @error('organization_id')
@@ -105,7 +105,7 @@
                          <select class="form-control" name="parent_id">
                             <option value="{{old('parent_id')}}">None</option>
                              @foreach(\App\Location::all()->sortBy('name') as $parent)  
-                                <option value="{{old('parent_id')?old('parent_id'):$parent->parent_id}}" {{$parent->id == $location->parent_id? "selected":""}}>{{$parent->name}}</option>
+                                <option value="{{old('parent_id')?old('parent_id'):$parent->id}}" {{$parent->id == $location->parent_id? "selected":""}}>{{$parent->name}}</option>
                             @endforeach
                         </select>
                          @error('parent_id')
@@ -167,7 +167,7 @@
                       <button type="reset" class="btn btn-warning btn-block">Cancel</button>
                     </div>
                     <div class="col-md-8">                      
-                      <button type="submit" class="btn btn-success btn-block pull-right">submit</button>
+                      <button type="submit" class="btn btn-success btn-block pull-right">Update</button>
                     </div>
                   </div>
                   <!-- /.box-footer -->

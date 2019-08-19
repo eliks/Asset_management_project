@@ -78,7 +78,7 @@
                                 <a href="{{route('assets.edit', ['id'=>$asset->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
-                                <a href="{{route('assets.destroy', ['id' => $asset->id])}}" onclick="event.preventDefault(); confirm('Are you sure?', document.getElementById('delete-asset-form-{{$asset->id}}').submit());">
+                                <a href="{{route('assets.destroy', ['id' => $asset->id])}}" onclick="event.preventDefault(); confirm('Are you sure you want to delete Asset?', document.getElementById('delete-asset-form-{{$asset->id}}').submit());">
                                     <i class="fa fa-trash text-danger"></i>
                                 </a>
 

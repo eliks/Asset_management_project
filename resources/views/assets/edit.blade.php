@@ -87,7 +87,7 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="type_id">
                             @foreach(\App\AssetType::all() as $asset_type)
-                                <option value="{{old('type_id')?old('type_id'):$asset->type_id}}" {{$asset_type->id == $asset->type_id? "selected":""}}>{{$asset_type->name}}</option>
+                                <option value="{{old('type_id')?old('type_id'):$asset_type->id}}"  {{$asset_type->id == $asset->type_id? "selected":""}}>{{$asset_type->name}}</option>
                             @endforeach
                         </select>
                         @error('type_id')
@@ -103,7 +103,7 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="location_id">
                              @foreach(\App\Location::all()->sortBy('name') as $location)
-                                <option value="{{old('location_id')?old('location_id'):$asset->location_id}}" {{$location->id == $asset->location_id? "selected":""}}>{{$location->name}}</option>
+                                <option value="{{old('location_id')?old('location_id'):$location->id}}" {{$location->id == $asset->location_id? "selected":""}}>{{$location->name}}</option>
                             @endforeach
                         </select>
                         @error('location_id')

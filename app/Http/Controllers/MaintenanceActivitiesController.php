@@ -74,9 +74,10 @@ class MaintenanceActivitiesController extends Controller
      * @param  \App\MaintenanceActivities  $maintenanceActivities
      * @return \Illuminate\Http\Response
      */
-    public function edit(MaintenanceActivities $maintenanceActivities)
+    public function edit($id)
     {
-        //
+        $data['maintenance'] = MaintenanceActivities::find($id);
+        return view('maintenance.edit', $data);
     }
 
     /**
@@ -86,10 +87,31 @@ class MaintenanceActivitiesController extends Controller
      * @param  \App\MaintenanceActivities  $maintenanceActivities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MaintenanceActivities $maintenanceActivities)
+    public function update(Request $request, $id)
     {
-        //
+         $input_data = $request->all();
+
+        $validator=Validator::make($input_data, [
+                'asset_id'=> 'required',
+            'description'=>'required',
+            'maintained_by'=>'required',
+            'maintained_at'=>'required',
+            'supervised_by'=>'required',
+            'location'=>'required',
+            ],
+        );
+
+        $maintenance = MaintenanceActivities::find($id);
+
+
+       $data = $request->all();
+      $maintenance->update($data);
+      // $asset->update($data);
+
+      return redirect(route('maintenance.index'))->with('maintenance', 'Activity has been updated');
+
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -97,9 +119,12 @@ class MaintenanceActivitiesController extends Controller
      * @param  \App\MaintenanceActivities  $maintenanceActivities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MaintenanceActivities $maintenanceActivities)
+    public function destroy($id)
     {
-        //
+         $asset = MaintenanceActivities::find($id);
+         $asset->delete();
+
+            return redirect(route('maintenance.index'))->with('success', 'Activity has been deleted Successfully');
     }
 
     public function apiMaintenanceTrend()

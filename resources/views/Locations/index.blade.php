@@ -82,9 +82,14 @@
                                 <a href="{{route('location.edit', ['id'=>$location->id])}}">
                                     <i class="fa fa-edit text-warning"></i>
                                 </a>
-                                <a href="#">
+                                <a href="{{route('location.destroy', ['id' => $location->id])}}" onclick="event.preventDefault(); confirm('Are you sure?', document.getElementById('delete-location-form-{{$location->id}}').submit());">
                                     <i class="fa fa-trash text-danger"></i>
                                 </a>
+
+                                 <form id="delete-location-form-{{$location->id}}" action="{{ route('location.destroy', ['id' => $location->id]) }}" method="POST" style="display: none;">
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -40,7 +40,7 @@ class UsersTableController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'username' => 'required|unique:users|max:16|min:5',
+            'username' => 'required|unique:users|max:32|min:5',
             'email' => 'required|email',
             'password' => 'required|min:8',
             'type' => 'required',
@@ -80,9 +80,10 @@ class UsersTableController extends Controller
      * @param  \App\Users_table  $users_table
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users_table $users_table)
+    public function edit($id)
     {
-        //
+        $data['user'] = User::find($id);
+        return view('users.edit', $data);
     }
 
     /**
@@ -92,9 +93,39 @@ class UsersTableController extends Controller
      * @param  \App\Users_table  $users_table
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users_table $users_table)
+    public function update(Request $request, $id)
     {
-        //
+        {
+        $input_data = $request->all();
+
+        $validator=Validator::make($input_data, [
+                'username' => 'required|max:32|min:5',
+                'email' => 'required|email',
+                'type' => 'required',
+            ],
+        );
+
+        $user = User::find($id);
+
+        // $validator->after(function() use ($user,$input_data,$validator){
+        //     if($user->tag != $input_data['tag'] && count(user::where('tag',$input_data['tag'])->get()) > 0){
+        //         $validator->errors()->add('tag','The tag specified has already been taken.');
+        //     }
+        // });
+
+        if ($validator->fails()) {
+            // return $request;
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+      $data = $request->all();
+      $user->update($data);
+
+      return redirect(route('users.index'))->with('success', 'User has been updated');
+
+    }
     }
 
     /**
@@ -103,8 +134,11 @@ class UsersTableController extends Controller
      * @param  \App\Users_table  $users_table
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users_table $users_table)
+    public function destroy($id)
     {
-        //
+         $user = User::find($id);
+         $user->delete();
+
+             return redirect(route('users.index'))->with('success', 'User has been deleted Successfully');
     }
 }

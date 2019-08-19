@@ -100,13 +100,12 @@ class LocationController extends Controller
      * @param  \App\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $id)
+    public function update(Request $request, $id)
     {
          $input_data = $request->all();
 
         $validator=Validator::make($input_data, [
-                'name' => 'required|unique:Locations', 
-                'organization_id' =>'required|numeric',
+                'name' => 'required',
                 'tag' => 'required',
                 'address' => 'required',
             ],
@@ -114,11 +113,11 @@ class LocationController extends Controller
 
         $location = Location::find($id);
 
-        // $validator->after(function() use ($location,$input_data,$validator){
-        //     if($location->tag != $input_data['tag'] && count(Location::where('tag',$input_data['tag'])->get()) > 0){
-        //         $validator->errors()->add('tag','The tag specified has already been taken.');
-        //     }
-        // });
+        $validator->after(function() use ($location,$input_data,$validator){
+            if($location->tag != $input_data['tag'] && count(Location::where('tag',$input_data['tag'])->get()) > 0){
+                $validator->errors()->add('tag','The tag specified has already been taken.');
+            }
+        });
 
         if ($validator->fails()) {
             // return $request;
@@ -132,7 +131,7 @@ class LocationController extends Controller
       $data = $request->all();
       $location->update($data);
 
-      return redirect(route('Locations.index'))->with('success', 'Stock has been updated');
+      return redirect(route('location.index'))->with('success', 'Location has been updated');
     }
 
     /**
@@ -141,8 +140,14 @@ class LocationController extends Controller
      * @param  \App\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Location $location)
+    public function destroy($id)
     {
-        //
+        // return 'sdsd';
+        
+     $Location = Location::find($id);
+     $Location->delete();
+
+     return redirect(route('location.index'))->with('success', 'Location has been deleted Successfully');
+
     }
 }

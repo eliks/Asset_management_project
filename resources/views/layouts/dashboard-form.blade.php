@@ -28,6 +28,8 @@
     <!-- bootstrap-daterangepicker -->
     <link href="{{asset('gm/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 
+    <link rel="shortcut icon" href="{{asset('gm/production/images/favicon.ico')}}" type="image/x-icon" />
+
     <!-- Custom Theme Style -->
     <link href="{{asset('gm/build/css/custom.min.css')}}" rel="stylesheet">
   </head>

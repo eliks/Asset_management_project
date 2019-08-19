@@ -59,7 +59,7 @@ class Asset extends Model
 
         if($this->number_of_days_to_maintenance <= 40)
         {
-            return 'bg-yellow';
+            return 'progress-bar-warning ';
         }
 
         return 'bg-green';

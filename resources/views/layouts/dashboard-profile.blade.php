@@ -21,6 +21,8 @@
     <!-- Custom Theme Style -->
     <link href="{{asset('gm/build/css/custom.min.css')}}" rel="stylesheet">
 
+    <link rel="shortcut icon" href="{{asset('gm/production/images/favicon.ico')}}" type="image/x-icon" />
+
      <!-- <style type="text/css">
         .profile_details {
             ;
