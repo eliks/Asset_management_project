@@ -70,7 +70,7 @@ class AssetsController extends Controller
        return redirect(route('assets.index'));
     }
 
-     public function schedule(Request $request, $asset_id)
+     public function scheduleMaintenance(Request $request, $asset_id)
         {
             $validator=Validator::make($request->all(), [
                 'next_maintenance_date' => 'required|date',
@@ -198,10 +198,11 @@ class AssetsController extends Controller
             ;
     }
 
-    public function scheduleMaintenance($asset_id)
+    public function schedule($asset_id)
     {
         $data['asset_id'] = $asset_id;
         $data['asset'] = Asset::find($asset_id);
+       
 
         return view('assets.schedule', $data)
             // ->with('message', $message)

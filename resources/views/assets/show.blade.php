@@ -41,7 +41,7 @@
                       <h3>{{$asset->name}}</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> {{$asset->location->name}}
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> {{$asset->location?$asset->location->name : ''}}
                         </li>
 
                         <li>
