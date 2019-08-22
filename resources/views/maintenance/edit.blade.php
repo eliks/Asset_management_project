@@ -57,7 +57,7 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="asset_id">
                             @foreach(\App\Asset::all() as $asset)
-                                <option value="{{old('asset_id')?old('asset_id'):$maintenance->id}}" {{$asset->id == $asset->asset_id? "selected":""}}>{{$asset->name}}</option>
+                                <option value="{{old('asset_id')?old('asset_id'):$asset->id}}" {{$asset->id == $asset->asset_id? "selected":""}}>{{$asset->name}}</option>
                             @endforeach
                         </select>
                         @error ('asset_id')
