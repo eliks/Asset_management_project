@@ -92,7 +92,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Maintained At</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <input type="date" name="maintained_at"class="form-control" value="date commenced" value="{{old('maintained_at')?old('maintained_at'):$maintenance->name}}">
+                        <input type="date" name="maintained_at" class="form-control" value="{{old('maintained_at')?old('maintained_at'):$maintenance->maintained_at}}">
                          @error('maintained_at')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -126,7 +126,7 @@
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Comment </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea type="text" class="form-control" rows="5"  name="comment" placeholder="Describe activity performed on asset"></textarea>
+                        <textarea type="text" class="form-control" rows="5" name="comment" placeholder="Describe activity performed on asset"></textarea>
                     </div>
                     </div>
 

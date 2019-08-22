@@ -47,7 +47,7 @@
                      
                       <ul class="list-unstyled user_data">
                         <li>
-                          <i class="fa fa-bank user-profile-icon"> Organisation:</i> {{$Locations->organisation}}
+                          <i class="fa fa-bank user-profile-icon"> Organisation:</i> {{$Locations->organization ? $Locations->organization->name : ''}}
                         </li>
                         <li>
                           <i class="fa fa-cubes user-profile-icon"> Assets:</i> {{{count($Locations->assets)}}}
@@ -92,10 +92,6 @@
                   <tr>
                     <th>Location Address</th>
                     <td>{{$Locations->address}}</td>
-                  </tr>
-                  <tr>
-                    <th>Organisation</th>
-                    <td>{{$Locations->organization ? $Locations->organization->name : ''}}</td>
                   </tr>
                 </tbody>
             </table>

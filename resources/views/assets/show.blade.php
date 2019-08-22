@@ -124,7 +124,7 @@
 
                           <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Usage</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Location Detail</a>
+                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Maintenance History</a>
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
@@ -186,7 +186,7 @@
                                     <th>First Use</th>
                                     <td>{{$asset->date_commenced}}</td>
                                   </tr>
-                                  <tr>
+
                                 </tbody>
 
                             </table>
@@ -194,7 +194,24 @@
 
                           </div>
                           <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                            <p> </p>
+                           
+                           <table id="datatable" class="table table-striped table-bordered">
+                          
+                                <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Date of Maintenance</th>
+                                </thead>
+                                  @foreach($asset->maintenanceActivities as $maintenance)
+                                <tbody>
+                                  <tr>
+                                    <td>{{$maintenance? $maintenance->description : ''}}</td>
+                                    <td>{{$maintenance? $maintenance->maintained_at : ''}}</td>
+                                  </tr>
+                                </tbody>
+                                @endforeach
+                            </table>
+                          
                           </div>
                         </div>
                       </div>
