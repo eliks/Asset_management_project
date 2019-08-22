@@ -84,7 +84,7 @@
     <!-- Custom Theme Scripts -->
     <script src="{{asset('gm/build/js/custom.min.js')}}"></script>
     <script type="text/javascript">
-        var $grid = $('.x_content').isotope({
+        var $grid = $('.x_content1').isotope({
           itemSelector: '.profile_details',
           getSortData: {
             name: '.ref'

@@ -121,6 +121,7 @@ class UsersTableController extends Controller
         }
 
       $data = $request->all();
+      $data['type_id'] = $data['type'];
       $user->update($data);
 
       return redirect(route('users.index'))->with('success', 'User has been updated');

@@ -25,13 +25,13 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="x_panel">
-                  <div class="x_content" data-isotope='{ "itemSelector": ".profile_details" }'>
+                  <div class="x_content1" data-isotope='{ "itemSelector": ".profile_details" }'>
                     <div class="row">
                       
 
                       <div class="clearfix"></div>
                     @foreach($users->sortBy('username') as $user)
-                      <div class="col-md-3 col-sm-4 col-xs-12 profile_details" >
+                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details" >
                         <div class="well profile_view">
                             <span class="ref" style="display: none;">{{strtoupper($user->username.' '.$user->email.' '.$user->type->name)}}</span>
                           <div class="col-sm-12">
@@ -40,8 +40,8 @@
                               <h2 class="ref">{{$user->username}}</h2>
                               
                               <ul class="list-unstyled">
-                                <li><i class="fa fa-envelope"></i>Email:  {{$user->email}}</li>
-                                <li><i class="fa fa-building"></i>Locations: {{count($user->locations)}}
+                                <li><i class="fa fa-envelope"></i> {{$user->email}}</li>
+                                <li><i class="fa fa-building"></i> Locations: {{count($user->locations)}}
                                     
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i></a>
                                 <ul class="dropdown-menu" role="menu">
