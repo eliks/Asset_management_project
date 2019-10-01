@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Add User to Location</h3>
+            <h3>Create Asset Registeration Link</h3>
             </div>
 
             <div class="title_right">
@@ -27,7 +27,7 @@
             <div class="col-md-7 col-xs-12 col-md-offset-1">
             <div class="x_panel">
                 <div class="x_title">
-               
+                
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -56,64 +56,97 @@
                         </ul>
                     </div>
                 @endif
-                <form class="form-horizontal form-label-left" action="{{route ('userslocation.store')}}" method="POST">
+                <form class="form-horizontal form-label-left" action="{{route ('asset_registration_links.store')}}" method="POST">
                   {{csrf_field()}}
                    <div class="box-body">
-                     <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select User</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select class="form-control" name="name">
-                             @foreach(\App\User::all()->sortBy('username') as $users)
-                                <option value="{{$users->id}}">{{$users->username}}</option>
-                            @endforeach
-                        </select>
-                        <!-- @error('name')
-                            <span class="invalid-feedback text-danger" role="alert">
-                                <strong></strong>
-                            </span>
-                         @enderror -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Caption</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" name="caption" class="form-control" placeholder="E. g. City Campus Asset 2019 Census" value="{{old('caption')}}">
+                             <!-- @error('name')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                        <strong></strong>
+                                    </span>
+                             @enderror -->
+                        </div>
                     </div>
-                    </div>
-                   
-                      <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Location</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select class="form-control" name="location_id">
-                             @foreach(\App\Location::all() as $location)
-                                <option value="{{$location->id}}">{{$location->name}}</option>
-                            @endforeach
-                        </select>
-                        <!-- @error('location_id')
-                            <span class="invalid-feedback text-danger" role="alert">
-                                <strong></strong>
-                            </span>
-                         @enderror -->
-                    </div>
-                    </div>
-                   
 
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <textarea  name="description" class="form-control" value="{{old('description')}}"></textarea>
+                             <!-- @error('name')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                        <strong></strong>
+                                    </span>
+                             @enderror -->
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <select class="form-control" name="type_id">
+                                @foreach(\App\AssetRegistrationLinkType::all() as $link)
+                                    <option value="{{$link->id }}">{{$link->name}}</option>
+                                @endforeach
+                            </select>
+                            <!-- @error('type_id')
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong></strong>
+                                </span>
+                             @enderror -->
+                        </div>
+                    </div>
 
-                      <div class="form-group">
-                <!--   <div class="col-sm-offset-2 col-sm-10 mb-3">
-                    <div class="checkbox">
-                      <label> 
-                        <input type="checkbox"> Remember me
-                      </label>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Location</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <select class="form-control" name="location_id">
+                                 @foreach(\App\Location::all()->sortBy('name') as $location)
+                                    <option value="{{$location->id}}">{{$location->name}}</option>
+                                @endforeach
+                            </select>
+                            <!-- @error('location_id')
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong></strong>
+                                </span>
+                             @enderror -->
+                        </div>
                     </div>
-                  </div> -->
-                  <!-- /.box-body -->
-                  <div class="box-footer mt-3">
-                    <div class="col-md-4">                      
-                      <button type="reset" class="btn btn-warning btn-block">Cancel</button>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Expiry Date</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="date" name="expiry_date"class="form-control" value="{{old('expiry_date')}}">
+                             <!-- @error('expiry_date')
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong></strong>
+                                </span>
+                            @enderror -->
+                        </div>
                     </div>
-                    <div class="col-md-8">                      
-                      <button type="submit" class="btn btn-success btn-block pull-right">submit</button>
+
+                    <div class="form-group">
+                        <!--   <div class="col-sm-offset-2 col-sm-10 mb-3">
+                            <div class="checkbox">
+                              <label> 
+                                <input type="checkbox"> Remember me
+                              </label>
+                            </div>
+                          </div> -->
+                          <!-- /.box-body -->
+                          <div class="box-footer mt-3">
+                            <div class="col-md-4">                      
+                              <button type="reset" class="btn btn-warning btn-block">Cancel</button>
+                            </div>
+                            <div class="col-md-8">                      
+                              <button type="submit" class="btn btn-success btn-block pull-right">submit</button>
+                            </div>
+                          </div>
+                          <!-- /.box-footer -->
+                        </div>
                     </div>
-                  </div>
-                  <!-- /.box-footer -->
-                </div>
-            </div>
                      </form>
                   <!--   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>

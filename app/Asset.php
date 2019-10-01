@@ -79,7 +79,7 @@ class Asset extends Model
 
     public function location()
     {
-        return $this->belongsTo('App\location');
+        return $this->belongsTo('App\Location');
     }
 
 

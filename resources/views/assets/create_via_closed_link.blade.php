@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Add User to Location</h3>
+            <h3>Add New Asset <small>Asset registration via closed link</small></h3>
             </div>
 
             <div class="title_right">
@@ -27,7 +27,7 @@
             <div class="col-md-7 col-xs-12 col-md-offset-1">
             <div class="x_panel">
                 <div class="x_title">
-               
+             
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -56,30 +56,52 @@
                         </ul>
                     </div>
                 @endif
-                <form class="form-horizontal form-label-left" action="{{route ('userslocation.store')}}" method="POST">
+                <form class="form-horizontal form-label-left" action="{{route ('assets.store_via_closed_link', ['token'=>$token])}}" method="POST">
                   {{csrf_field()}}
                    <div class="box-body">
-                     <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select User</label>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <select class="form-control" name="name">
-                             @foreach(\App\User::all()->sortBy('username') as $users)
-                                <option value="{{$users->id}}">{{$users->username}}</option>
-                            @endforeach
-                        </select>
-                        <!-- @error('name')
+                        <input type="text" name="name" class="form-control" placeholder="Enter Asset's name..." value="{{old('name')}}">
+                         <!-- @error('name')
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong></strong>
+                                </span>
+                         @enderror -->
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Tag</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" name="tag" class="form-control"  placeholder="Enter Asset's tag..." value="{{old('tag')}}">
+                         <!-- @error('tag')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong></strong>
                             </span>
                          @enderror -->
                     </div>
                     </div>
-                   
-                      <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Location</label>
+                     <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Type</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select class="form-control" name="type_id">
+                            @foreach(\App\AssetType::all() as $asset)
+                                <option value="{{$asset->id }}">{{$asset->name}}</option>
+                            @endforeach
+                        </select>
+                        <!-- @error('type_id')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                         @enderror -->
+                    </div>
+                    </div>
+            
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Location</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <select class="form-control" name="location_id">
-                             @foreach(\App\Location::all() as $location)
+                             @foreach($locations as $location)
                                 <option value="{{$location->id}}">{{$location->name}}</option>
                             @endforeach
                         </select>
@@ -90,7 +112,51 @@
                          @enderror -->
                     </div>
                     </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" name="brand" class="form-control" placeholder="Enter Asset's brand..." value="{{old('brand')}}">
+                         <!-- @error('brand')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
+                    </div>
+                    </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset's Custodian</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                         <input type="text" name="user_name" class="form-control" placeholder="Enter Custodian's name..." value="{{old('user_name')}}">
+                         <!-- @error('user_name')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Commenced</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="date" name="date_commenced"class="form-control" value="date commenced" value="{{old('date_commenced')}}">
+                         <!-- @error('date_commenced')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
+                    </div>
+                    </div>
                    
+                     <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="date" name="date_acquired"  class="form-control" id="autocomplete-custom-append" placeholder="date acquired" value="{{old('date_acquired')}}">
+                         <!-- @error('date_acquired')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
+                    </div>
+                    </div>
 
 
 

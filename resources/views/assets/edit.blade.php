@@ -64,22 +64,22 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" name="name" class="form-control" placeholder="Enter Asset's name..." value="{{old('name')?old('name'):$asset->name}}" >
-                         @error('name')
+                         <!-- @error('name')
                                 <span class="invalid-feedback text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                    <strong></strong>
                                 </span>
-                         @enderror
+                         @enderror -->
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Tag</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" name="tag" class="form-control"  placeholder="Enter Asset's tag..." value="{{old('tag')?old('tag'):$asset->tag}}">
-                         @error('tag')
+                         <!-- @error('tag')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong></strong>
                             </span>
-                         @enderror
+                         @enderror -->
                     </div>
                     </div>
                      <div class="form-group">
@@ -90,11 +90,11 @@
                                 <option value="{{old('type_id')?old('type_id'):$asset_type->id}}"  {{$asset_type->id == $asset->type_id? "selected":""}}>{{$asset_type->name}}</option>
                             @endforeach
                         </select>
-                        @error('type_id')
+                        <!-- @error('type_id')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong></strong>
                             </span>
-                         @enderror
+                         @enderror -->
                     </div>
                     </div>
             
@@ -106,22 +106,22 @@
                                 <option value="{{old('location_id')?old('location_id'):$location->id}}" {{$location->id == $asset->location_id? "selected":""}}>{{$location->name}}</option>
                             @endforeach
                         </select>
-                        @error('location_id')
+                        <!-- @error('location_id')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong></strong>
                             </span>
-                         @enderror
+                         @enderror -->
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" name="brand" class="form-control" placeholder="Enter Asset's brand..." value="{{old('brand')?old('brand'):$asset->brand}}">
-                         @error('brand')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                         <!-- @error('brand')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
                     </div>
                     </div>
                   <div class="form-group">
@@ -130,22 +130,22 @@
                          <input type="text" name="user_name" class="form-control" placeholder="Enter Custodian's name..." value="{{old('user_name')?old('user_name'):$asset->user_name}}">
                            
                         </select>
-                         @error('user_name')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                         <!-- @error('user_name')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Commenced</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="date" name="date_commenced" class="form-control" value="{{old('date_commenced')?old('date_commenced'):$asset->date_commenced}}">
-                         @error('date_commenced')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                         <!-- @error('date_commenced')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
                     </div>
                     </div>
                    
@@ -153,11 +153,11 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Acquired</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="date" name="date_acquired"  class="form-control" id="autocomplete-custom-append" placeholder="date acquired" value="{{old('date_acquired')?old('date_acquired'):$asset->date_acquired}}">
-                         @error('date_acquired')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                         <!-- @error('date_acquired')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
                     </div>
                     </div>
 

@@ -10,6 +10,10 @@ use \Validator;
 
 class UsersTableController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -102,7 +106,7 @@ class UsersTableController extends Controller
                 'username' => 'required|max:32|min:5',
                 'email' => 'required|email',
                 'type' => 'required',
-            ],
+            ]
         );
 
         $user = User::find($id);

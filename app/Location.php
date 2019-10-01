@@ -37,6 +37,11 @@ class Location extends Model
         return $this->hasMany('App\Asset');
     }
 
+    public function assetsAddedViaLink(AssetRegistrationLink $link)
+    {
+        return $this->assets()->whereIn('id', $link->assets->pluck('id'))->get();
+    }
+
     public function organization()
     {
         return $this->belongsTo('App\Organization');

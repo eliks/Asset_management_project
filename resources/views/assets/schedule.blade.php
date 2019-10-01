@@ -60,18 +60,18 @@
                                 <option value="{{$asset->id}}" {{$asset->id == $asset_id? "selected":""}}>{{$asset->name}}</option>
                             @endforeach
                         </select>
-                        @error ('asset_id')
+                        @if($errors->has('asset_id'))
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong>{{$errors->first('message')}}</strong>
                             </span>
-                        @enderror
+                        @endif
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                          <input type="date" name="next_maintenance_date"class="form-control" value="date commenced" value="{{old('date_commenced')}}">
-                        @error ('description')
+                        @error('description')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{$message}}</strong>
                             </span>

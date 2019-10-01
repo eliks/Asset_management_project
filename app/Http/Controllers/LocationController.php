@@ -46,8 +46,7 @@ class LocationController extends Controller
                 'address' => 'required',
              
                
-            ], 
-        );
+            ]);
 
   
         if ($validator->fails()) {
@@ -108,8 +107,7 @@ class LocationController extends Controller
                 'name' => 'required',
                 'tag' => 'required',
                 'address' => 'required',
-            ],
-        );
+            ]);
 
         $location = Location::find($id);
 

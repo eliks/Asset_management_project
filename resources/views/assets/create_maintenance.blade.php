@@ -59,44 +59,44 @@
                                 <option value="{{$asset->id}}" {{$asset->id == $asset_id? "selected":""}}>{{$asset->name}}</option>
                             @endforeach
                         </select>
-                        @error ('asset_id')
+                        <!-- @error ('asset_id')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong></strong>
                             </span>
-                        @enderror
+                        @enderror -->
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Description </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" class="form-control" name="description" placeholder="Describe activity performed on asset">
-                        @error ('description')
+                        <!-- @error ('description')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong></strong>
                             </span>
-                        @enderror
+                        @enderror -->
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Maintained By </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" class="form-control" name="maintained_by" placeholder="Enter name of technician">
-                        @error ('maintained_by')
+                        <!-- @error ('maintained_by')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong></strong>
                             </span>
-                        @enderror
+                        @enderror -->
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Maintained At</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="date" name="maintained_at"class="form-control" value="date commenced" value="{{old('date_commenced')}}">
-                         @error('maintained_at')
-                        <span class="invalid-feedback text-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                         <!-- @error('maintained_at')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong></strong>
+                            </span>
+                        @enderror -->
                     </div>
                     </div>
 
@@ -104,22 +104,22 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Supervised By </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" class="form-control" name="supervised_by" placeholder="Enter name of supervisor">
-                        @error ('supervised_by')
+                        <!-- @error ('supervised_by')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong></strong>
                             </span>
-                        @enderror
+                        @enderror -->
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Location </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" class="form-control" name="location" placeholder="Enter where asset was maintained">
-                        @error ('location')
+                        <!-- @error ('location')
                             <span class="invalid-feedback text-danger" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong></strong>
                             </span>
-                        @enderror
+                        @enderror -->
                     </div>
                     </div>
                     <div class="form-group">

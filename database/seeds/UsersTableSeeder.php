@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ghana@gmail.com',
             'password' => Hash::make('nana'),
             'added_by_id' =>'1',
+            'type_id' => 3
         ]);
 
         DB::table('users')->insert([
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'princy@gmail.com',
             'password' => Hash::make('chacha'),
             'added_by_id' =>'1',
+            'type_id' => 1
         ]);
 
         DB::table('users')->insert([
@@ -30,6 +32,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'lydama@yahoo.com',
             'password' =>Hash::make ('lydialydia'),
             'added_by_id' =>'1',
+            'type_id' => 1
         ]);
 
         DB::table('users')->insert([
@@ -37,6 +40,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'phil@gmail.com',
             'password' =>Hash::make('kwesi'),
             'added_by_id' =>'1',
+            'type_id' => 1
         ]);
 
         DB::table('users')->insert([
@@ -44,6 +48,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'williwilli@gmail.com',
             'password' => Hash::make('asdgas'),
             'added_by_id' =>'1',
+            'type_id' => 2
         ]);
 
         DB::table('users')->insert([
@@ -51,6 +56,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'nanakay@live.com',
             'password' =>Hash::make('kwesi'),
             'added_by_id' =>'1',
+            'type_id' => 2
         ]);
 
         DB::table('users')->insert([
@@ -58,6 +64,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'cudge@gmail.com',
             'password' =>Hash::make('kwesi'),
             'added_by_id' =>'1',
+            'type_id' => 3
         ]);
     }
 }

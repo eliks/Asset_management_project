@@ -32,6 +32,7 @@
                     <li><a href="{{route('assets.index')}}">All Assets</a></li>
                     <li><a href="{{route('assets.create')}}">New Asset</a></li>
                     <li><a href="{{route('assets.index')}}">Asset Types</a></li>
+                    <li><a href="{{route('asset_registration_links.index')}}">Asset Registration Links</a></li>
                 </ul>
                 </li>
                 <li><a><i class="fa fa-wrench"></i> Maintenance <span class="fa fa-chevron-down"></span></a>

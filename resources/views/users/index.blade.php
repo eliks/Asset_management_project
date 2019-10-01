@@ -33,7 +33,7 @@
                     @foreach($users->sortBy('username') as $user)
                       <div class="col-md-4 col-sm-4 col-xs-12 profile_details" >
                         <div class="well profile_view">
-                            <span class="ref" style="display: none;">{{strtoupper($user->username.' '.$user->email.' '.$user->type->name)}}</span>
+                            <span class="ref" style="display: none;">{{strtoupper($user->username.' '.$user->email.' '.($user->type?$user->type->name:''))}}</span>
                           <div class="col-sm-12">
                             <h4 class="brief"><i>{{$user->type ? $user->type->name : ''}}</i></h4>
                             <div class="left col-xs-8">

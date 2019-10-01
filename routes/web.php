@@ -17,18 +17,25 @@ Route::get('login', function () {
     return view('welcome');
 })->name('login');
 
-
 Route::get('home', 'HomeController@index')->name('home');
-Route::get('assets/{asset}/create_maintenance', 'AssetsController@createMaintenance')->name('assets.create-maintenance');
-Route::get('assets/{asset}/schedule', 'AssetsController@schedule')->name('assets.schedule');
-Route::patch('assets/{asset}/schedule', 'AssetsController@scheduleMaintenance')->name('patch.assets.schedule');
-Route::resource('assets', 'AssetsController');
-Route::resource('location', 'LocationController');
-Route::resource('users', 'UsersTableController');
-Route::resource('maintenance', 'MaintenanceActivitiesController');
-Route::resource('userslocation', 'UsersLocationController');
+Route::get('assets/register_via_closed_link/{token}', 'AssetsController@createViaLink')->name('assets.register_via_closed_link');
+Route::post('assets/store_via_closed_link/{token}', 'AssetsController@storeViaClosedLink')->name('assets.store_via_closed_link');
+	
+Route::group(['middleware' => ['auth']], function () {
+ 
+	Route::get('assets/{asset}/create_maintenance', 'AssetsController@createMaintenance')->name('assets.create-maintenance');
+	Route::get('assets/{asset}/schedule', 'AssetsController@schedule')->name('assets.schedule');
+	Route::patch('assets/{asset}/schedule', 'AssetsController@scheduleMaintenance')->name('patch.assets.schedule');
+	Route::resource('assets', 'AssetsController');
+	Route::resource('asset_registration_links', 'AssetRegistrationLinkController');
+	Route::resource('location', 'LocationController');
+	Route::resource('users', 'UsersTableController');
+	Route::resource('maintenance', 'MaintenanceActivitiesController');
+	Route::resource('userslocation', 'UsersLocationController');
 
-Route::get('api/maintenance_trend', 'MaintenanceActivitiesController@apiMaintenanceTrend')->name('api.maintenance_trend');
+	Route::get('api/maintenance_trend', 'MaintenanceActivitiesController@apiMaintenanceTrend')->name('api.maintenance_trend');
+
+});
 
 
 Route::get('/', function () {

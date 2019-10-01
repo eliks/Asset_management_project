@@ -55,7 +55,7 @@
                 <form class="form-horizontal form-label-left" action="{{route('users.update', $user->id) }}" method="POST">
                     {{method_field('PATCH')}}
                   
-                    @csrf
+                    {{csrf_field()}}
 
                     <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">User Name</label>

@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\UserType;
+use App\AssetRegistrationLinkLocation;
 use Illuminate\Http\Request;
 
-class UserTypeController extends Controller
+class AssetRegistrationLinkLocationController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -46,10 +41,10 @@ class UserTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserType  $userType
+     * @param  \App\AssetRegistrationLinkLocation  $assetRegistrationLinkLocation
      * @return \Illuminate\Http\Response
      */
-    public function show(UserType $userType)
+    public function show(AssetRegistrationLinkLocation $assetRegistrationLinkLocation)
     {
         //
     }
@@ -57,10 +52,10 @@ class UserTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserType  $userType
+     * @param  \App\AssetRegistrationLinkLocation  $assetRegistrationLinkLocation
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserType $userType)
+    public function edit(AssetRegistrationLinkLocation $assetRegistrationLinkLocation)
     {
         //
     }
@@ -69,10 +64,10 @@ class UserTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserType  $userType
+     * @param  \App\AssetRegistrationLinkLocation  $assetRegistrationLinkLocation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserType $userType)
+    public function update(Request $request, AssetRegistrationLinkLocation $assetRegistrationLinkLocation)
     {
         //
     }
@@ -80,10 +75,10 @@ class UserTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserType  $userType
+     * @param  \App\AssetRegistrationLinkLocation  $assetRegistrationLinkLocation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserType $userType)
+    public function destroy(AssetRegistrationLinkLocation $assetRegistrationLinkLocation)
     {
         //
     }

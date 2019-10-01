@@ -44,8 +44,7 @@ class MaintenanceActivitiesController extends Controller
             'maintained_at'=>'required',
             'supervised_by'=>'required',
             'location'=>'required',
-        ],
-    );
+        ]);
 
         if ($validator->fails()){
             return redirect(route('maintenance.create'))
@@ -98,8 +97,7 @@ class MaintenanceActivitiesController extends Controller
             'maintained_at'=>'required',
             'supervised_by'=>'required',
             'location'=>'required',
-            ],
-        );
+            ]);
 
         $maintenance = MaintenanceActivities::find($id);
 

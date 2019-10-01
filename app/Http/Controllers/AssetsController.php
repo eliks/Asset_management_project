@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
+use App\AssetRegistrationLink;
+use App\AssetAssetRegistrationLink;
 use App\User;
 use App\Location;
 use Illuminate\Http\Request;
 use \Validator;
 use Illuminate\Validation\Rule;
+use \Auth;
 
 class AssetsController extends Controller
 {
@@ -50,11 +53,10 @@ class AssetsController extends Controller
                 'name' => 'required',
                 'type_id' =>'required|numeric',
                 'tag' => 'required',
-                'date_commenced' => 'required',
-                'date_acquired' => 'required|date',
+                'date_commenced' => 'required|date',
+                // 'date_acquired' => 'required|date',
                 'location_id'=>'required',
-            ], 
-        );
+            ]);
 
         if ($validator->fails()) {
             // return $request;
@@ -70,12 +72,63 @@ class AssetsController extends Controller
        return redirect(route('assets.index'));
     }
 
+    public function createViaLink($token)
+    {
+        $links = AssetRegistrationLink::where('token',$token);
+
+        if(count($links->get()) > 0)
+        {
+            $link = $links->first();
+        } else {
+            return redirect('home');
+        }
+
+        $data['locations'] = $link->locations;
+        $data['token'] = $token;
+
+        return view('assets.create_via_closed_link', $data);
+    }
+
+    public function storeViaClosedLink(Request $request, $token)
+    {
+        $links = AssetRegistrationLink::where('token',$token);
+
+        if(count($links->get()) > 0)
+        {
+            $link = $links->first();
+        } else {
+            return redirect('home');
+        }
+
+        $validator=Validator::make($request->all(), [
+            'name' => 'required',
+            'type_id' =>'required|numeric',
+            'tag' => 'required',
+            'date_commenced' => 'required|date',
+            'date_acquired' => 'required',
+            'location_id'=>'required',
+        ]);
+
+
+        if ($validator->fails()) {
+            return redirect(route('assets.create'))
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+       $data = $request->all();
+
+       $asset = Asset::create($data);
+       AssetAssetRegistrationLink::create(['asset_registration_link_id' => $link->id, 'asset_id' => $asset->id, 'added_by_id' => Auth::user()->id]);
+
+       return redirect(route('assets.register_via_closed_link', ['token' => $token]));
+    }
+
      public function scheduleMaintenance(Request $request, $asset_id)
         {
             $validator=Validator::make($request->all(), [
                 'next_maintenance_date' => 'required|date',
-            ],
-        );
+            ]);
 
          if ($validator->fails()) {
             // return $request;
@@ -144,8 +197,7 @@ class AssetsController extends Controller
                 'date_commenced' => 'required',
                 'date_acquired' => 'required|date',
                 'location_id'=>'required',
-            ],
-        );
+            ]);
 
         $asset = Asset::find($id);
 

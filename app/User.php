@@ -32,6 +32,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getIsSuperUserAttribute()
+    {
+        if($this->type_id == 4)
+            return true;
+        return false;
+    }
+
      public function locations()
     {           
         return $this->belongsToMany('App\Location', 'users_locations');
