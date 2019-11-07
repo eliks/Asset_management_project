@@ -61,6 +61,17 @@
                   {{csrf_field()}}
                    <div class="box-body">
                     <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Serial Number</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" name="serial_number" class="form-control" placeholder="Enter Asset's name..." value="{{old('serial_number')?old('serial_number'):$asset->serial_number}}">
+                             <!-- @error('serial_number')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                        <strong></strong>
+                                    </span>
+                             @enderror -->
+                        </div>
+                    </div>
+                    <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" name="name" class="form-control" placeholder="Enter Asset's name..." value="{{old('name')?old('name'):$asset->name}}" >

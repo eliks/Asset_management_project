@@ -9,7 +9,7 @@ class Asset extends Model
 
     protected $primaryKey = 'id';
             
-     protected $fillable = ['name','type_id', 'tag', 'next_maintenance_date', 'brand', 'user_name', 'date_commenced', 'date_acquired', 'location_id','added_by_id'];
+     protected $fillable = ['serial_number', 'name','type_id', 'tag', 'next_maintenance_date', 'brand', 'user_name', 'date_commenced', 'date_acquired', 'location_id','added_by_id'];
 
 
     public function getNextAssetIdAttribute()

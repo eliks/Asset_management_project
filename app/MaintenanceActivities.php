@@ -14,10 +14,10 @@ class MaintenanceActivities extends Model
         return $this->belongsTo('App\Asset');
     }
 
-    // public function User()
-    // {
-    //     return $this->belongsTo('App\User');
-    // }
+    public function addedBy()
+    {
+        return $this->belongsTo('App\User', 'added_by_id');
+    }
 
 
     public function UserType()
@@ -28,6 +28,20 @@ class MaintenanceActivities extends Model
     public function getAssetNameAttribute()
     {
         return $this->asset ? $this->asset->name : '';
+    }
+
+    public function getAssetNameWithLinkAttribute()
+    {
+        return $this->asset ? 
+        '<a class="text-info" target="_blanc" href="' . route('assets.show', ['id' => $this->asset->id]) .'">' . $this->asset->name . ' <i class="fa fa-link"></i></a>'
+         : '';
+    }
+
+    public function getAddedByNameWithLinkAttribute()
+    {
+        return $this->addedBy ? 
+        '<a class="text-info" href="' . route('users.show', ['id' => $this->addedBy->id]) .'">' . $this->addedBy->username . ' <i class="fa fa-link"></i></a>'
+         : '';
     }
 
 }

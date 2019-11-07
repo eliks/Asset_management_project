@@ -12,6 +12,7 @@ class AssetsTableSeeder extends Seeder
     public function run()
     {
         DB::table('assets')->insert([
+            'serial_number' => '58477473663663d53454fd4544fdt45545',
             'name' => 'UGCS General Office Desktop PC 1',
             'tag' => 'UG/UGCS/GO/2019/PC/01',
 			'type_id' => 1,
@@ -26,6 +27,7 @@ class AssetsTableSeeder extends Seeder
         ]);
 
         DB::table('assets')->insert([
+            'serial_number' => 'dhner6773473663487594092dkfj54',
             'name' => 'UGCS Help Desk Desktop PC',
             'tag' => 'UG/UGCS/HD/2018/PC/23',
 			'type_id' => 1,
@@ -40,6 +42,7 @@ class AssetsTableSeeder extends Seeder
         ]);
 
         DB::table('assets')->insert([
+            'serial_number' => 'fu484993300d003k449883nd343',
             'name' => 'Cash Office Laptop PC',
             'tag' => 'CA/OFF/LP/2011/PC/01',
             'type_id' => 2,
@@ -54,6 +57,7 @@ class AssetsTableSeeder extends Seeder
         ]);
 
         DB::table('assets')->insert([
+            'serial_number' => '8ndkdk84776637399400ed938',
             'name' => 'UGCS Akai Dispenser',
             'tag' => 'UG/UGCS/LAB/01',
             'type_id' => 3,
@@ -68,6 +72,7 @@ class AssetsTableSeeder extends Seeder
         ]);
 
         DB::table('assets')->insert([
+            'serial_number' => '887367484002-22984h',
             'name' => 'UGCS Lab4A Table 1',
             'tag' => 'LAB/4A/TB/01',
             'type_id' => 5,
@@ -82,6 +87,7 @@ class AssetsTableSeeder extends Seeder
         ]);
 
          DB::table('assets')->insert([
+            'serial_number' => '747848e4789837j87484848',
             'name' => 'JNH Tut Off Air Conditioner',
             'tag' => 'JN/NL/TOFF/AC',
             'type_id' => 3,
@@ -96,6 +102,7 @@ class AssetsTableSeeder extends Seeder
         ]);
 
         DB::table('assets')->insert([
+            'serial_number' => '748849398474775848474',
             'name' => 'Acc General PC 3',
             'tag' => 'AC/GN/PC/03',
             'type_id' => 5,

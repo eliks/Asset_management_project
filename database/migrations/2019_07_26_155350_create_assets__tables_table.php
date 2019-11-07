@@ -15,6 +15,7 @@ class CreateAssetsTablesTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('serial_number',64)->nullable()->unique();
             $table->string('name',64)->nullable();
             $table->integer('type_id')->nullable()->unsigned()->index();
             $table->date('next_maintenance_date')->nullable();

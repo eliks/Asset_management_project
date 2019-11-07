@@ -21,7 +21,7 @@ class AssetsController extends Controller
      */
     public function index()
     {
-        $data['assets'] = Asset::with(['location', 'type', 'maintenanceActivities'])->get();
+        $data['assets'] = Asset::with(['location', 'type', 'maintenanceActivities'])->orderBy('created_at', 'DESC')->get();
         
         return view('assets.index', $data);
     }
@@ -50,6 +50,7 @@ class AssetsController extends Controller
     public function store(Request $request)
     {
         $validator=Validator::make($request->all(), [
+                'serial_number' => 'required',
                 'name' => 'required',
                 'type_id' =>'required|numeric',
                 'tag' => 'required',
