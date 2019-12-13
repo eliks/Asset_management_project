@@ -14,7 +14,7 @@ class AssetRegistrationLink extends Model
     {
         if($this->type_id == 1)
             return route('assets.register_via_closed_link', ['token' => $this->token]);
-        return route('assets.register_via_closed_link', ['token' => $this->token]);
+        return route('assets.register_via_opened_link', ['token' => $this->token]);
     }
 
     public function type()

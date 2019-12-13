@@ -84,13 +84,25 @@ class AssetsController extends Controller
             return redirect('home');
         }
 
+        $data['link'] = $link;
         $data['locations'] = $link->locations;
-        $data['token'] = $token;
+        $data['assets'] = $link->assets;
+        $data['link_token'] = $token;
+
+        if ($link->type_id == 2) {
+            return view('assets.create_via_opened_link', $data);
+        } 
 
         return view('assets.create_via_closed_link', $data);
     }
 
-    public function storeViaClosedLink(Request $request, $token)
+    /**
+     * Store asset registration data submitted through an asset registration link (closed or open)
+     * 
+     * @param $request
+     * @param $token
+     */
+    public function storeViaLink(Request $request, $token)
     {
         $links = AssetRegistrationLink::where('token',$token);
 
